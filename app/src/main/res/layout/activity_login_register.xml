@@ -6,16 +6,31 @@
     android:layout_height="match_parent"
     android:background="@drawable/foody_blur"
     tools:context=".view.LoginRegisterActivity">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line1_vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line2_vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9" />
+
     <ImageButton
         android:id="@+id/btn_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
         android:background="@android:color/transparent"
         android:src="@drawable/ic_baseline_arrow_back_ios_new_24"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"/>
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/txt_header_login_register"
@@ -34,29 +49,143 @@
 
     <Button
         android:id="@+id/btn_login_with_phone_number"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:backgroundTint="@android:color/holo_green_dark"
+        android:backgroundTint="@color/login_phone_number_btn_background"
         android:text="Đăng nhập với số điện thoại"
         app:icon="@drawable/ic_baseline_phone_android_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/line1_vertical"
+        app:layout_constraintRight_toLeftOf="@id/line2_vertical"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.17" />
 
     <Button
         android:id="@+id/btn_login_with_facebook"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/login_facebook_btn_background"
+        android:text="Đăng nhập với Facebook"
+        app:icon="@drawable/ic_icons8_facebook_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toRightOf="@id/line1_vertical"
+        app:layout_constraintRight_toLeftOf="@id/line2_vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.248" />
+
+    <Button
+        android:id="@+id/btn_login_with_google"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/login_google_btn_background"
+        android:text="Đăng nhập với Google"
+        app:icon="@drawable/ic_icons8_google_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toRightOf="@id/line1_vertical"
+        app:layout_constraintRight_toLeftOf="@id/line2_vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.325" />
+
+    <TextView
+        android:id="@+id/txt_login_with_your_account"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@android:color/holo_green_dark"
-        android:text="Đăng nhập với Facebook"
-        app:icon="@drawable/ic_baseline_phone_android_24"
+        android:text="Đăng Nhập bằng tài khoản của bạn"
+        android:textColor="@color/login_with_your_account"
+        android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.284" />
+        app:layout_constraintVertical_bias="0.416" />
+
+    <EditText
+        android:id="@+id/txt_email"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:background="@drawable/edit_text_background"
+        android:drawableLeft="@drawable/ic_baseline_email_24"
+        android:hint="Email"
+        android:textColor="@color/white"
+        android:textColorHint="@color/edit_text_border_color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/line1_vertical"
+        app:layout_constraintRight_toLeftOf="@id/line2_vertical"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/txt_password"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:background="@drawable/edit_text_background"
+        android:drawableLeft="@drawable/ic_baseline_lock_24"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:textColor="@color/white"
+        android:textColorHint="@color/edit_text_border_color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toRightOf="@id/line1_vertical"
+        app:layout_constraintRight_toLeftOf="@id/line2_vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.563" />
+
+    <Button
+        android:id="@+id/btn_login_with_your_account"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        android:text="Login"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toRightOf="@id/line1_vertical"
+        app:layout_constraintRight_toLeftOf="@id/line2_vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.65" />
+
+    <TextView
+        android:id="@+id/txt_forgot_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/forgot_password"
+        android:textColor="@color/login_with_your_account"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/line1_vertical"
+        app:layout_constraintRight_toLeftOf="@id/line2_vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.708" />
+
+    <TextView
+        android:id="@+id/txt_do_not_use_information"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/do_not_use_information"
+        android:textColor="@color/login_with_your_account"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/line1_vertical"
+        app:layout_constraintRight_toLeftOf="@id/line2_vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.904" />
+
+    <TextView
+        android:id="@+id/txt_login_agree_policy"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/login_agree_policy"
+        android:textColor="@color/login_with_your_account"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/line1_vertical"
+        app:layout_constraintRight_toLeftOf="@id/line2_vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.974" />
 </androidx.constraintlayout.widget.ConstraintLayout>

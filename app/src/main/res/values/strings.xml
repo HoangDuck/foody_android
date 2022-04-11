@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Foody_08</string>
+    <string name="forgot_password"><u>Quên mật khẩu?</u></string>
+    <string name="do_not_use_information">Chúng tôi không sử dụng thông tin của bạn cho bất kỳ mục đích nào</string>
+    <string name="login_agree_policy">Khi bạn đã đăng nhập/đăng ký thì bạn đã đồng ý <u>Chính sách và điều khoản của Foody</u></string>
 </resources>

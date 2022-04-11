@@ -7,4 +7,9 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="login_phone_number_btn_background">#0AA553</color>
+    <color name="login_facebook_btn_background">#3B5998</color>
+    <color name="login_google_btn_background">#DE5144</color>
+    <color name="login_with_your_account">#E4F2FF</color>
+    <color name="edit_text_border_color">#BEAA99</color>
 </resources>

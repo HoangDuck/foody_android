@@ -49,6 +49,12 @@
             android:name=".view.LoginRegisterActivity"
             android:exported="true" />
         <activity
+            android:name=".view.PaymentFailedActivity"
+            android:exported="true" />
+        <activity
+            android:name=".view.ForgotPasswordActivity"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

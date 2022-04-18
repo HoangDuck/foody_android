@@ -12,4 +12,7 @@
     <color name="login_google_btn_background">#DE5144</color>
     <color name="login_with_your_account">#E4F2FF</color>
     <color name="edit_text_border_color">#BEAA99</color>
+    <color name="app_bar_color">#CC0000</color>
+    <color name="contact_button">#EBEBEB</color>
+    <color name="add_cart_button_color">#EE4D2D</color>
 </resources>

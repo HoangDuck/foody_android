@@ -7,6 +7,10 @@ import android.os.Bundle;
 import android.view.View;
 
 import hcmute.edu.vn.foody_08.view.LoginRegisterActivity;
+import hcmute.edu.vn.foody_08.view.OrderActivity;
+import hcmute.edu.vn.foody_08.view.OrderAllCartActivity;
+import hcmute.edu.vn.foody_08.view.PaymentActivity;
+import hcmute.edu.vn.foody_08.view.RestaurantActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openPage(View view) {
-        Intent intent=new Intent(MainActivity.this, LoginRegisterActivity.class);
+        Intent intent=new Intent(MainActivity.this, PaymentActivity.class);
         startActivity(intent);
     }
 }

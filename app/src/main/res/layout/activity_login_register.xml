@@ -29,6 +29,7 @@
         android:layout_marginTop="10dp"
         android:background="@android:color/transparent"
         android:src="@drawable/ic_baseline_arrow_back_ios_new_24"
+        android:onClick="closePageLogin"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

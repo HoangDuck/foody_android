@@ -10,6 +10,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Foody_08">
         <activity
+            android:name=".view.OrderAllCartActivity"
+            android:exported="true" />
+        <activity
+            android:name=".view.PaymentResultActivity"
+            android:exported="true" />
+        <activity
+            android:name=".view.PaymentActivity"
+            android:exported="true" />
+        <activity
+            android:name=".view.OrderActivity"
+            android:exported="true" />
+        <activity
+            android:name=".view.RestaurantActivity"
+            android:exported="true" />
+        <activity
             android:name=".view.LoginRegisterActivity"
             android:exported="true" />
         <activity

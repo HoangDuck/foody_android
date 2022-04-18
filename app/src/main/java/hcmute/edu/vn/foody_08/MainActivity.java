@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openPage(View view) {
-        Intent intent=new Intent(MainActivity.this, LoginRegisterActivity.class);
+        Intent intent=new Intent(MainActivity.this, SearchActivity.class);
         startActivity(intent);
     }
 }

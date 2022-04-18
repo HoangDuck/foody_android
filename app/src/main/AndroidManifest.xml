@@ -10,11 +10,26 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Foody_08">
         <activity
-            android:name=".view.PaymentFailedActivity"
-            android:exported="true" />
+            android:name=".ItemSearchActivity"
+            android:exported="false" />
         <activity
-            android:name=".view.ForgotPasswordActivity"
-            android:exported="true" />
+            android:name=".ItemHomeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EditNameActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UserInfoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AccountActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SearchActivity"
+            android:exported="false" />
+        <activity
+            android:name=".HomeActivity"
+            android:exported="false" />
         <activity
             android:name=".view.OrderAllCartActivity"
             android:exported="true" />

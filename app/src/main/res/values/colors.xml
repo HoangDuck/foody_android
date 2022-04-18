@@ -15,4 +15,5 @@
     <color name="app_bar_color">#CC0000</color>
     <color name="contact_button">#EBEBEB</color>
     <color name="add_cart_button_color">#EE4D2D</color>
+    <color name="red">#FF00</color>
 </resources>

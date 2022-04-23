@@ -20,8 +20,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:onClick="closeOrderPage"
-            android:background="@drawable/ic_baseline_arrow_back_ios_new_24" />
+            android:background="@drawable/ic_baseline_arrow_back_ios_new_24"
+            android:onClick="closeOrderPage" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -36,8 +36,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:onClick="goToYourCart"
-            android:background="@drawable/ic_baseline_shopping_cart_24" />
+            android:background="@drawable/ic_baseline_shopping_cart_24"
+            android:onClick="goToYourCart" />
 
     </LinearLayout>
 
@@ -91,9 +91,9 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@android:color/darker_gray"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_app_bar"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/bottom_app_bar"/>
+        app:layout_constraintRight_toRightOf="parent" />
 
     <LinearLayout
         android:id="@+id/bottom_app_bar"
@@ -136,8 +136,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:backgroundTint="@color/app_bar_color"
-            android:text="Thêm vào giỏ hàng"
             android:onClick="addToCartAndFinish"
+            android:text="Thêm vào giỏ hàng"
             android:textStyle="bold" />
 
     </LinearLayout>

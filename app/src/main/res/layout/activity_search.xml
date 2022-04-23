@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SearchActivity">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -13,13 +14,12 @@
         tools:layout_editor_absoluteY="-72dp">
 
         <LinearLayout
+            android:id="@+id/BackInfo"
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:layout_marginTop="0dp"
             android:background="@drawable/my_custom_background"
-            android:orientation="horizontal"
-            android:id="@+id/BackInfo">
-            >
+            android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/iconBackInfo"
@@ -48,37 +48,38 @@
                 tools:ignore="RtlCompat" />
 
         </LinearLayout>
+
         <LinearLayout
+            android:id="@+id/search_bar"
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:layout_marginTop="0dp"
             android:background="@drawable/my_custom_background"
-            android:orientation="horizontal"
-            android:id="@+id/search_bar">
-            >
+            android:orientation="horizontal">
+
 
             <ImageView
                 android:layout_width="56dp"
                 android:layout_height="56dp"
-                android:background="@drawable/search"
                 android:layout_gravity="center"
+                android:background="@drawable/search"
                 android:scaleType="center" />
 
             <EditText
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent" />
         </LinearLayout>
 
         <GridView
             android:id="@+id/grid"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:numColumns="1"
-            android:verticalSpacing="10dp"
             android:horizontalSpacing="10dp"
+            android:numColumns="1"
             android:scrollbarStyle="outsideOverlay"
+            android:scrollbars="vertical"
             android:verticalScrollbarPosition="right"
-            android:scrollbars="vertical" />
+            android:verticalSpacing="10dp" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,4 +3,6 @@
     <string name="forgot_password"><u>Quên mật khẩu?</u></string>
     <string name="do_not_use_information">Chúng tôi không sử dụng thông tin của bạn cho bất kỳ mục đích nào</string>
     <string name="login_agree_policy">Khi bạn đã đăng nhập/đăng ký thì bạn đã đồng ý <u>Chính sách và điều khoản của Foody</u></string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

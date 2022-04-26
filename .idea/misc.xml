@@ -17,7 +17,7 @@
         <entry key="..\:/Users/ADMIN/Desktop/Foody_08/app/src/main/res/drawable/ic_baseline_remove_circle_outline_24.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/ADMIN/Desktop/Foody_08/app/src/main/res/drawable/ic_baseline_shopping_cart_24.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/ADMIN/Desktop/Foody_08/app/src/main/res/layout/activity_account.xml" value="0.25" />
-        <entry key="..\:/Users/ADMIN/Desktop/Foody_08/app/src/main/res/layout/activity_edit_name.xml" value="0.1" />
+        <entry key="..\:/Users/ADMIN/Desktop/Foody_08/app/src/main/res/layout/activity_edit_name.xml" value="0.2" />
         <entry key="..\:/Users/ADMIN/Desktop/Foody_08/app/src/main/res/layout/activity_forgot_password.xml" value="0.25" />
         <entry key="..\:/Users/ADMIN/Desktop/Foody_08/app/src/main/res/layout/activity_home.xml" value="0.25" />
         <entry key="..\:/Users/ADMIN/Desktop/Foody_08/app/src/main/res/layout/activity_item_home.xml" value="0.25" />
@@ -33,6 +33,9 @@
         <entry key="..\:/Users/ADMIN/Desktop/Foody_08/app/src/main/res/layout/activity_restaurant.xml" value="0.264" />
         <entry key="..\:/Users/ADMIN/Desktop/Foody_08/app/src/main/res/layout/activity_search.xml" value="0.25" />
         <entry key="..\:/Users/ADMIN/Desktop/Foody_08/app/src/main/res/layout/activity_user_info.xml" value="0.25" />
+        <entry key="..\:/Users/ADMIN/Desktop/Foody_08/app/src/main/res/layout/fragment_account.xml" value="0.20697463768115942" />
+        <entry key="..\:/Users/ADMIN/Desktop/Foody_08/app/src/main/res/layout/fragment_home.xml" value="0.20697463768115942" />
+        <entry key="..\:/Users/ADMIN/Desktop/Foody_08/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25" />
       </map>
     </option>
   </component>

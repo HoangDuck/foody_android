@@ -28,6 +28,7 @@
             android:layout_height="wrap_content"
             android:text="Bún bò Huế"
             android:textSize="15dp"
+            android:textStyle="bold"
             app:layout_constraintTop_toBottomOf="@+id/imageView"
             tools:layout_editor_absoluteX="16dp" />
 

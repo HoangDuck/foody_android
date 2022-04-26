@@ -34,6 +34,8 @@
                     android:gravity="center_vertical"
                     android:paddingLeft="20dp"
                     android:text="&lt;"
+                    android:onClick="back"
+                    android:textColor="@color/white"
                     android:textSize="20sp" />
 
                 <TextView
@@ -46,6 +48,7 @@
                     android:gravity="center_vertical"
                     android:paddingLeft="0dp"
                     android:text="Tài khoản"
+                    android:textColor="@color/white"
                     android:textAlignment="center"
                     android:textSize="20sp"
                     tools:ignore="RtlCompat" />
@@ -97,9 +100,10 @@
                     android:layout_weight="1"
                     android:background="@color/red"
                     android:fontFamily="sans-serif-black"
-                    android:gravity="center_vertical"
+                    android:gravity="center"
                     android:paddingLeft="20dp"
                     android:text="Lưu thay đổi"
+                    android:textColor="@color/white"
                     android:textSize="20sp" />
 
             </LinearLayout>

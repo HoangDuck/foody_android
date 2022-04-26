@@ -21,15 +21,15 @@
         <activity
             android:name=".UserInfoActivity"
             android:exported="false" />
-        <activity
+        <!--<activity
             android:name=".AccountActivity"
-            android:exported="false" />
+            android:exported="false" />-->
         <activity
             android:name=".SearchActivity"
             android:exported="false" />
-        <activity
+        <!--<activity
             android:name=".HomeActivity"
-            android:exported="false" />
+            android:exported="false" />-->
         <activity
             android:name=".view.OrderAllCartActivity"
             android:exported="true" />

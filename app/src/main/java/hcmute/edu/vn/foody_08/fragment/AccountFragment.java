@@ -12,7 +12,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import hcmute.edu.vn.foody_08.AccountActivity;
 import hcmute.edu.vn.foody_08.R;
 import hcmute.edu.vn.foody_08.UserInfoActivity;
 import hcmute.edu.vn.foody_08.view.LoginRegisterActivity;

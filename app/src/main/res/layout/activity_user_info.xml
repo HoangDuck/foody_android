@@ -129,7 +129,6 @@
                         android:fontFamily="sans-serif-black"
                         android:gravity="center_vertical|right"
                         android:paddingRight="20dp"
-                        android:onClick="editNamePage"
                         android:text=">"
                         android:textSize="20sp" />
                 </LinearLayout>
@@ -230,11 +229,10 @@
                         android:layout_weight="1"
                         android:background="@color/red"
                         android:fontFamily="sans-serif-black"
-                        android:gravity="center_vertical"
+                        android:gravity="center"
                         android:paddingLeft="20dp"
                         android:text="Lưu thay đổi"
                         android:textColor="@color/white"
-                        android:textAlignment="center"
                         android:textSize="20sp" />
 
                 </LinearLayout>

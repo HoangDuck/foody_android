@@ -25,13 +25,20 @@
         <entry key="..\:/Users/ADMIN/Desktop/Foody_08/app/src/main/res/drawable/ic_baseline_phone_24.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/ADMIN/Desktop/Foody_08/app/src/main/res/drawable/ic_baseline_phone_android_24.xml" value="0.14322916666666666" />
         <entry key="..\:/Users/ADMIN/Desktop/Foody_08/app/src/main/res/drawable/ic_baseline_remove_circle_outline_24.xml" value="0.26614583333333336" />
+        <entry key="..\:/Users/ADMIN/Desktop/Foody_08/app/src/main/res/layout/activity_account.xml" value="0.15625" />
+        <entry key="..\:/Users/ADMIN/Desktop/Foody_08/app/src/main/res/layout/activity_home.xml" value="0.15625" />
         <entry key="..\:/Users/ADMIN/Desktop/Foody_08/app/src/main/res/layout/activity_login_register.xml" value="0.264" />
         <entry key="..\:/Users/ADMIN/Desktop/Foody_08/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/ADMIN/Desktop/Foody_08/app/src/main/res/layout/activity_order.xml" value="0.25" />
         <entry key="..\:/Users/ADMIN/Desktop/Foody_08/app/src/main/res/layout/activity_order_all_cart.xml" value="0.25" />
         <entry key="..\:/Users/ADMIN/Desktop/Foody_08/app/src/main/res/layout/activity_payment.xml" value="0.25" />
         <entry key="..\:/Users/ADMIN/Desktop/Foody_08/app/src/main/res/layout/activity_payment_result.xml" value="0.25" />
+        <entry key="..\:/Users/ADMIN/Desktop/Foody_08/app/src/main/res/layout/activity_payment_result_success.xml" value="0.17980072463768115" />
         <entry key="..\:/Users/ADMIN/Desktop/Foody_08/app/src/main/res/layout/activity_restaurant.xml" value="0.264" />
+        <entry key="..\:/Users/ADMIN/Desktop/Foody_08/app/src/main/res/layout/activity_search.xml" value="0.15353260869565216" />
+        <entry key="..\:/Users/ADMIN/Desktop/Foody_08/app/src/main/res/layout/activity_user_info.xml" value="0.15625" />
+        <entry key="..\:/Users/ADMIN/Desktop/Foody_08/app/src/main/res/layout/fragment_account.xml" value="0.15625" />
+        <entry key="..\:/Users/ADMIN/Desktop/Foody_08/app/src/main/res/layout/fragment_home.xml" value="0.18568840579710144" />
       </map>
     </option>
   </component>

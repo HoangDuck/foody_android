@@ -17,14 +17,7 @@ public class PaymentResultActivity extends AppCompatActivity {
     }
 
     public void closeResultPage(View view) {
-        //Call to homepage
-        Intent intent=new Intent();
-        startActivity(intent);
+        finish();
     }
 
-    public void goBackHomePage(View view) {
-        //Call to homepage
-        Intent intent=new Intent();
-        startActivity(intent);
-    }
 }

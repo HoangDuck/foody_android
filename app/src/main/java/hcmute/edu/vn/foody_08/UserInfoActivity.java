@@ -33,4 +33,8 @@ public class UserInfoActivity extends AppCompatActivity {
         Intent intent=new Intent(this, EditNameActivity.class);
         startActivity(intent);
     }
+
+    public void back(View view) {
+        finish();
+    }
 }

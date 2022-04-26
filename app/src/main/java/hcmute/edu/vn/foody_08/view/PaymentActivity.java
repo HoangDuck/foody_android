@@ -20,4 +20,13 @@ public class PaymentActivity extends AppCompatActivity {
         Intent intent=new Intent(this,PaymentResultActivity.class);
         startActivity(intent);
     }
+
+    public void payment(View view) {
+        Intent intent=new Intent(PaymentActivity.this,PaymentResultActivity.class);
+        startActivity(intent);
+    }
+
+    public void back(View view) {
+        finish();
+    }
 }

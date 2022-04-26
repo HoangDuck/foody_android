@@ -31,6 +31,8 @@
                 android:gravity="center_vertical"
                 android:paddingLeft="20dp"
                 android:text="&lt;"
+                android:textColor="@color/white"
+                android:onClick="back"
                 android:textSize="20sp" />
 
             <TextView
@@ -42,7 +44,8 @@
                 android:fontFamily="sans-serif-black"
                 android:gravity="center_vertical"
                 android:paddingLeft="0dp"
-                android:text="Tài khoản"
+                android:text="Món ăn"
+                android:textColor="@color/white"
                 android:textAlignment="center"
                 android:textSize="20sp"
                 tools:ignore="RtlCompat" />

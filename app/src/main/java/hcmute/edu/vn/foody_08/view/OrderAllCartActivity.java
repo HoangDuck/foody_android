@@ -17,7 +17,8 @@ public class OrderAllCartActivity extends AppCompatActivity {
     }
 
     public void paymentYourCart(View view) {
-        //Intent intent=new Intent(this,)
+        Intent intent=new Intent(OrderAllCartActivity.this,PaymentActivity.class);
+        startActivity(intent);
         //truyền nhận trả dữ liệu qua json sử dụng intent string ấy
     }
 

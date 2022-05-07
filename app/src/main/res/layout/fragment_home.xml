@@ -21,81 +21,87 @@
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
                 android:layout_marginTop="0dp"
-                android:background="@drawable/my_custom_background"
+                android:background="@color/app_bar_color"
                 android:orientation="horizontal"
                 android:id="@+id/BackInfo">
-                >
-
-                <TextView
-                    android:id="@+id/txtTitle"
+                <LinearLayout
+                    android:layout_height="match_parent"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@color/red"
-                    android:fontFamily="sans-serif-black"
-                    android:gravity="center_vertical"
-                    android:paddingLeft="0dp"
-                    android:text="Trang chủ"
-                    android:textColor="@color/white"
-                    android:textAlignment="center"
-                    android:textSize="20sp"
-                    tools:ignore="RtlCompat" />
+                    android:layout_margin="10dp"
+                    android:background="@drawable/shape"
+                    android:orientation="horizontal"
+                    android:onClick="openSearchView">
+                    <ImageView
+                        android:layout_marginRight="20dp"
+                        android:id="@+id/image_search"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="left"
+                        android:background="@drawable/ic_baseline_search_24_black"
+                        android:scaleType="center"
+                        tools:ignore="MissingConstraints" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Tìm kiếm nhà hàng, món ăn"
+                        android:gravity="center"/>
+                </LinearLayout>
 
             </LinearLayout>
-            <LinearLayout
-                android:layout_margin="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_marginTop="0dp"
-                android:background="@drawable/my_custom_background"
-                android:orientation="horizontal">
+<!--            <LinearLayout-->
+<!--                android:layout_margin="10dp"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="0dp"-->
+<!--                android:background="@drawable/my_custom_background"-->
+<!--                android:orientation="horizontal">-->
 
-                <ImageView
-                    android:layout_weight="0.23"
-                    android:layout_marginRight="20dp"
-                    android:id="@+id/image_store"
-                    android:layout_width="0dp"
-                    android:layout_height="100dp"
-                    android:layout_gravity="left"
-                    android:background="@drawable/store_icon"
-                    android:scaleType="center"
-                    tools:ignore="MissingConstraints" />
+<!--&lt;!&ndash;                <ImageView&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_weight="0.23"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_marginRight="20dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:id="@+id/image_store"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_width="0dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_height="100dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_gravity="left"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:background="@drawable/store_icon"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:scaleType="center"&ndash;&gt;-->
+<!--&lt;!&ndash;                    tools:ignore="MissingConstraints" />&ndash;&gt;-->
 
-                <ImageView
-                    android:layout_marginRight="20dp"
-                    android:id="@+id/image_food"
-                    android:layout_width="0dp"
-                    android:layout_weight="0.23"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="left"
-                    android:background="@drawable/food_icon"
-                    android:scaleType="center"
-                    tools:ignore="MissingConstraints" />
+<!--&lt;!&ndash;                <ImageView&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_marginRight="20dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:id="@+id/image_food"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_width="0dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_weight="0.23"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_height="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_gravity="left"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:background="@drawable/food_icon"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:scaleType="center"&ndash;&gt;-->
+<!--&lt;!&ndash;                    tools:ignore="MissingConstraints" />&ndash;&gt;-->
 
-                <ImageView
-                    android:layout_marginRight="20dp"
-                    android:id="@+id/image_search"
-                    android:layout_width="0dp"
-                    android:layout_weight="0.23"
-                    android:layout_height="100dp"
-                    android:layout_gravity="left"
-                    android:background="@drawable/search"
-                    android:scaleType="center"
-                    tools:ignore="MissingConstraints" />
-                <ImageView
-                    android:layout_marginRight="10dp"
-                    android:id="@+id/image_cart"
-                    android:layout_width="0dp"
-                    android:layout_weight="0.23"
-                    android:layout_height="100dp"
-                    android:layout_gravity="left"
-                    android:background="@drawable/cart_icon"
-                    android:scaleType="center"
-                    tools:ignore="MissingConstraints" />
+<!--                &lt;!&ndash;<ImageView-->
+<!--                    android:layout_marginRight="20dp"-->
+<!--                    android:id="@+id/image_search"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_weight="0.23"-->
+<!--                    android:layout_height="100dp"-->
+<!--                    android:layout_gravity="left"-->
+<!--                    android:background="@drawable/search"-->
+<!--                    android:scaleType="center"-->
+<!--                    tools:ignore="MissingConstraints" />&ndash;&gt;-->
+<!--&lt;!&ndash;                <ImageView&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_marginRight="10dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:id="@+id/image_cart"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_width="0dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_weight="0.23"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_height="100dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_gravity="left"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:background="@drawable/cart_icon"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:scaleType="center"&ndash;&gt;-->
+<!--&lt;!&ndash;                    tools:ignore="MissingConstraints" />&ndash;&gt;-->
 
 
 
-            </LinearLayout>
+<!--            </LinearLayout>-->
             <LinearLayout
                 android:layout_marginBottom="10dp"
                 android:layout_width="match_parent"
@@ -111,14 +117,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:background="@color/red"
+                    android:background="@color/app_bar_color"
                     android:fontFamily="sans-serif-black"
                     android:gravity="center_vertical"
                     android:paddingLeft="0dp"
                     android:text="Thức ăn"
                     android:textAlignment="center"
                     android:textSize="20sp"
-                    tools:ignore="RtlCompat" />
+                    tools:ignore="RtlCompat"
+                    android:textColor="@color/white"/>
 
             </LinearLayout>
             <GridView
@@ -141,21 +148,21 @@
                 android:background="@drawable/my_custom_background"
                 android:orientation="horizontal"
                 android:id="@+id/nav_gridstore">
-                >
 
                 <TextView
                     android:id="@+id/txtTitleStore"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:background="@color/red"
+                    android:background="@color/app_bar_color"
                     android:fontFamily="sans-serif-black"
                     android:gravity="center_vertical"
                     android:paddingLeft="0dp"
                     android:text="Cửa hàng"
                     android:textAlignment="center"
                     android:textSize="20sp"
-                    tools:ignore="RtlCompat" />
+                    tools:ignore="RtlCompat"
+                    android:textColor="@color/white"/>
             </LinearLayout>
             <GridView
                 android:id="@+id/gridstore"

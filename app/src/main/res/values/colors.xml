@@ -16,4 +16,5 @@
     <color name="contact_button">#EBEBEB</color>
     <color name="add_cart_button_color">#EE4D2D</color>
     <color name="red">#FF00</color>
+    <color name="btn_save_color">#51A868</color>
 </resources>

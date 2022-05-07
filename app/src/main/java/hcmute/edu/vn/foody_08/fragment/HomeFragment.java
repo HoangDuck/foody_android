@@ -63,9 +63,9 @@ public class HomeFragment extends Fragment {
     }
     protected void setView(View view){
         imageSearch = view.findViewById(R.id.image_search);
-        imageFood = view.findViewById(R.id.image_food);
-        imageCart = view.findViewById(R.id.image_cart);
-        imageStore = view.findViewById(R.id.image_store);
+        //imageFood = view.findViewById(R.id.image_food);
+        //imageCart = view.findViewById(R.id.image_cart);
+        //imageStore = view.findViewById(R.id.image_store);
     }
     protected void setOnclick(){
         imageSearch.setOnClickListener(new View.OnClickListener() {
@@ -75,26 +75,26 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        imageStore.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openStore(view);
-            }
-        });
+//        imageStore.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                openStore(view);
+//            }
+//        });
 
-        imageFood.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openFood(view);
-            }
-        });
+//        imageFood.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                openFood(view);
+//            }
+//        });
 
-        imageCart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openCart(view);
-            }
-        });
+//        imageCart.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                openCart(view);
+//            }
+//        });
     }
 
     protected void openSearch(View view){

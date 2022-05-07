@@ -25,33 +25,24 @@
                 <LinearLayout
                     android:id="@+id/BackInfo"
                     android:layout_width="match_parent"
-                    android:layout_height="56dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="0dp"
-                    android:background="@drawable/my_custom_background"
+                    android:background="@color/app_bar_color"
                     android:orientation="horizontal">
                     >
 
-                    <TextView
-                        android:id="@+id/iconBackInfo"
-                        android:layout_width="98dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:background="@color/red"
-                        android:fontFamily="sans-serif-black"
-                        android:gravity="center_vertical"
-                        android:textColor="@color/white"
-                        android:onClick="back"
-                        android:paddingLeft="20dp"
-                        android:text="&lt;"
-                        android:textSize="20sp" />
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/ic_baseline_arrow_back_ios_new_24"
+                        android:onClick="back" />
 
                     <TextView
                         android:id="@+id/txtTitle"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:background="@color/red"
-                        android:fontFamily="sans-serif-black"
                         android:gravity="center_vertical"
                         android:paddingLeft="0dp"
                         android:text="Tài khoản"
@@ -218,8 +209,9 @@
                 <LinearLayout
                     android:id="@+id/LinearSave"
                     android:layout_width="match_parent"
-                    android:layout_height="56dp"
+                    android:layout_height="wrap_content"
                     android:background="@drawable/my_custom_background"
+                    android:layout_margin="10dp"
                     android:orientation="horizontal">
 
                     <TextView
@@ -227,8 +219,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:background="@color/red"
-                        android:fontFamily="sans-serif-black"
+                        android:background="@color/btn_save_color"
                         android:gravity="center"
                         android:paddingLeft="20dp"
                         android:text="Lưu thay đổi"

@@ -12,22 +12,22 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import hcmute.edu.vn.foody_08.R;
 import hcmute.edu.vn.foody_08.SearchActivity;
-import hcmute.edu.vn.foody_08.TemAdapter;
+import hcmute.edu.vn.foody_08.adapter.TemAdapter;
+import hcmute.edu.vn.foody_08.model.Shop;
+import hcmute.edu.vn.foody_08.service.ShopSevice;
 import hcmute.edu.vn.foody_08.view.OrderAllCartActivity;
 import hcmute.edu.vn.foody_08.view.RestaurantActivity;
 
 public class HomeFragment extends Fragment {
-    List listthucan;
-    ImageView imageSearch;
-    ImageView imageFood;
-    ImageView imageCart;
-    ImageView imageStore;
+    List<Shop> listRestaurant;
+    LinearLayout search_bar;
     public HomeFragment() {
         // Required empty public constructor
     }
@@ -47,70 +47,30 @@ public class HomeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        GridView gridViewFood = view.findViewById(R.id.gridfood);
-        listthucan = new ArrayList<>();
-        for (int i = 0; i < 100; i++)
-            listthucan.add(i);
-        TemAdapter footItemAdapter = new TemAdapter(getActivity(), R.layout.activity_item_home, listthucan);
-        gridViewFood.setAdapter(footItemAdapter);
-        footItemAdapter.notifyDataSetChanged();
-
+        listRestaurant = new ArrayList<>();
+        getAllShopData();
+        TemAdapter footItemAdapter = new TemAdapter(getActivity(), R.layout.activity_item_home, listRestaurant);
         GridView gridViewStore = view.findViewById(R.id.gridstore);
         gridViewStore.setAdapter(footItemAdapter);
         footItemAdapter.notifyDataSetChanged();
         setView(view);
-        setOnclick();
+        setOnclick(view);
     }
+
+    private void getAllShopData() {
+        ShopSevice shopSevice=new ShopSevice(getContext());
+        listRestaurant= shopSevice.getAllShops();
+    }
+
     protected void setView(View view){
-        imageSearch = view.findViewById(R.id.image_search);
-        //imageFood = view.findViewById(R.id.image_food);
-        //imageCart = view.findViewById(R.id.image_cart);
-        //imageStore = view.findViewById(R.id.image_store);
+        search_bar=view.findViewById(R.id.search_bar);
     }
-    protected void setOnclick(){
-        imageSearch.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openSearch(view);
-            }
-        });
-
-//        imageStore.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                openStore(view);
-//            }
-//        });
-
-//        imageFood.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                openFood(view);
-//            }
-//        });
-
-//        imageCart.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                openCart(view);
-//            }
-//        });
+    protected void setOnclick(View viewFragment){
+        search_bar.setOnClickListener(this::openSearchView);
     }
 
-    protected void openSearch(View view){
-        Intent intent=new Intent(view.getContext(), SearchActivity.class);
-        startActivity(intent);
-    }
-    protected void openStore(View view){
-        Intent intent=new Intent(view.getContext(), RestaurantActivity.class);
-        startActivity(intent);
-    }
-    protected void openFood(View view){
-        Intent intent=new Intent(view.getContext(), SearchActivity.class);
-        startActivity(intent);
-    }
-    protected void openCart(View view){
-        Intent intent=new Intent(view.getContext(), OrderAllCartActivity.class);
+    private void openSearchView(View viewFragment) {
+        Intent intent=new Intent(viewFragment.getContext(),SearchActivity.class);
         startActivity(intent);
     }
 }

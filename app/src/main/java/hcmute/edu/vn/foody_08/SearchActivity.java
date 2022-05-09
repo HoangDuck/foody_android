@@ -9,6 +9,8 @@ import android.widget.GridView;
 import java.util.ArrayList;
 import java.util.List;
 
+import hcmute.edu.vn.foody_08.adapter.TemAdapter;
+
 public class SearchActivity extends AppCompatActivity {
     List listthucan;
 

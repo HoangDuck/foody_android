@@ -5,177 +5,170 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragment.HomeFragment">
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:ignore="MissingConstraints">
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="-16dp"
+        tools:layout_editor_absoluteY="-72dp">
+
         <LinearLayout
+            android:id="@+id/search_bar"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="0dp"
+            android:background="@color/app_bar_color"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:layout_margin="10dp"
+                android:background="@drawable/shape"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_marginRight="20dp"
+                    android:id="@+id/image_search"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="left"
+                    android:background="@drawable/ic_baseline_search_24_black"
+                    android:scaleType="center"
+                    tools:ignore="MissingConstraints" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Tìm kiếm nhà hàng, món ăn"
+                    android:gravity="center"/>
+            </LinearLayout>
+
+        </LinearLayout>
+        <!--            <LinearLayout-->
+        <!--                android:layout_margin="10dp"-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_marginTop="0dp"-->
+        <!--                android:background="@drawable/my_custom_background"-->
+        <!--                android:orientation="horizontal">-->
+
+        <!--&lt;!&ndash;                <ImageView&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:layout_weight="0.23"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:layout_marginRight="20dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:id="@+id/image_store"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:layout_width="0dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:layout_height="100dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:layout_gravity="left"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:background="@drawable/store_icon"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:scaleType="center"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    tools:ignore="MissingConstraints" />&ndash;&gt;-->
+
+        <!--&lt;!&ndash;                <ImageView&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:layout_marginRight="20dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:id="@+id/image_food"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:layout_width="0dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:layout_weight="0.23"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:layout_height="match_parent"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:layout_gravity="left"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:background="@drawable/food_icon"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:scaleType="center"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    tools:ignore="MissingConstraints" />&ndash;&gt;-->
+
+        <!--                &lt;!&ndash;<ImageView-->
+        <!--                    android:layout_marginRight="20dp"-->
+        <!--                    android:id="@+id/image_search"-->
+        <!--                    android:layout_width="0dp"-->
+        <!--                    android:layout_weight="0.23"-->
+        <!--                    android:layout_height="100dp"-->
+        <!--                    android:layout_gravity="left"-->
+        <!--                    android:background="@drawable/search"-->
+        <!--                    android:scaleType="center"-->
+        <!--                    tools:ignore="MissingConstraints" />&ndash;&gt;-->
+        <!--&lt;!&ndash;                <ImageView&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:layout_marginRight="10dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:id="@+id/image_cart"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:layout_width="0dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:layout_weight="0.23"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:layout_height="100dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:layout_gravity="left"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:background="@drawable/cart_icon"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    android:scaleType="center"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    tools:ignore="MissingConstraints" />&ndash;&gt;-->
+
+
+
+        <!--            </LinearLayout>-->
+        <!--<LinearLayout
+            android:layout_marginBottom="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="0dp"
+            android:background="@drawable/my_custom_background"
+            android:orientation="horizontal"
+            android:id="@+id/nav_food">
+
+            <TextView
+                android:id="@+id/txtfood"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/app_bar_color"
+                android:fontFamily="sans-serif-black"
+                android:gravity="center_vertical"
+                android:paddingLeft="0dp"
+                android:text="Thức ăn"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                tools:ignore="RtlCompat"
+                android:textColor="@color/white"/>
+
+        </LinearLayout>
+        <GridView
+            android:id="@+id/gridfood"
+            android:layout_width="fill_parent"
+            android:layout_height="785dp"
+            android:horizontalSpacing="10dp"
+            android:numColumns="2"
+            android:scrollbarStyle="outsideOverlay"
+            android:scrollbars="vertical"
+            android:verticalScrollbarPosition="right"
+            android:verticalSpacing="10dp">
+        </GridView>-->
+        <!--            <LinearLayout-->
+        <!--                android:layout_marginBottom="10dp"-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="56dp"-->
+        <!--                android:layout_marginTop="0dp"-->
+        <!--                android:background="@drawable/my_custom_background"-->
+        <!--                android:orientation="horizontal"-->
+        <!--                android:id="@+id/nav_gridstore">-->
+
+        <!--                <TextView-->
+        <!--                    android:id="@+id/txtTitleStore"-->
+        <!--                    android:layout_width="match_parent"-->
+        <!--                    android:layout_height="match_parent"-->
+        <!--                    android:layout_weight="1"-->
+        <!--                    android:background="@color/app_bar_color"-->
+        <!--                    android:fontFamily="sans-serif-black"-->
+        <!--                    android:gravity="center_vertical"-->
+        <!--                    android:paddingLeft="0dp"-->
+        <!--                    android:text="Cửa hàng"-->
+        <!--                    android:textAlignment="center"-->
+        <!--                    android:textSize="20sp"-->
+        <!--                    tools:ignore="RtlCompat"-->
+        <!--                    android:textColor="@color/white"/>-->
+        <!--            </LinearLayout>-->
+        <GridView
+            android:id="@+id/gridstore"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/white"
-            android:orientation="vertical"
-            tools:layout_editor_absoluteX="-16dp"
-            tools:layout_editor_absoluteY="-72dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:layout_marginTop="0dp"
-                android:background="@color/app_bar_color"
-                android:orientation="horizontal"
-                android:id="@+id/BackInfo">
-                <LinearLayout
-                    android:layout_height="match_parent"
-                    android:layout_width="match_parent"
-                    android:layout_margin="10dp"
-                    android:background="@drawable/shape"
-                    android:orientation="horizontal"
-                    android:onClick="openSearchView">
-                    <ImageView
-                        android:layout_marginRight="20dp"
-                        android:id="@+id/image_search"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="left"
-                        android:background="@drawable/ic_baseline_search_24_black"
-                        android:scaleType="center"
-                        tools:ignore="MissingConstraints" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:text="Tìm kiếm nhà hàng, món ăn"
-                        android:gravity="center"/>
-                </LinearLayout>
-
-            </LinearLayout>
-<!--            <LinearLayout-->
-<!--                android:layout_margin="10dp"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginTop="0dp"-->
-<!--                android:background="@drawable/my_custom_background"-->
-<!--                android:orientation="horizontal">-->
-
-<!--&lt;!&ndash;                <ImageView&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:layout_weight="0.23"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:layout_marginRight="20dp"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:id="@+id/image_store"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:layout_width="0dp"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:layout_height="100dp"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:layout_gravity="left"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:background="@drawable/store_icon"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:scaleType="center"&ndash;&gt;-->
-<!--&lt;!&ndash;                    tools:ignore="MissingConstraints" />&ndash;&gt;-->
-
-<!--&lt;!&ndash;                <ImageView&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:layout_marginRight="20dp"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:id="@+id/image_food"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:layout_width="0dp"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:layout_weight="0.23"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:layout_height="match_parent"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:layout_gravity="left"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:background="@drawable/food_icon"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:scaleType="center"&ndash;&gt;-->
-<!--&lt;!&ndash;                    tools:ignore="MissingConstraints" />&ndash;&gt;-->
-
-<!--                &lt;!&ndash;<ImageView-->
-<!--                    android:layout_marginRight="20dp"-->
-<!--                    android:id="@+id/image_search"-->
-<!--                    android:layout_width="0dp"-->
-<!--                    android:layout_weight="0.23"-->
-<!--                    android:layout_height="100dp"-->
-<!--                    android:layout_gravity="left"-->
-<!--                    android:background="@drawable/search"-->
-<!--                    android:scaleType="center"-->
-<!--                    tools:ignore="MissingConstraints" />&ndash;&gt;-->
-<!--&lt;!&ndash;                <ImageView&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:layout_marginRight="10dp"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:id="@+id/image_cart"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:layout_width="0dp"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:layout_weight="0.23"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:layout_height="100dp"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:layout_gravity="left"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:background="@drawable/cart_icon"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:scaleType="center"&ndash;&gt;-->
-<!--&lt;!&ndash;                    tools:ignore="MissingConstraints" />&ndash;&gt;-->
-
-
-
-<!--            </LinearLayout>-->
-            <LinearLayout
-                android:layout_marginBottom="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:layout_marginTop="0dp"
-                android:background="@drawable/my_custom_background"
-                android:orientation="horizontal"
-                android:id="@+id/nav_food">
-                >
-
-                <TextView
-                    android:id="@+id/txtfood"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@color/app_bar_color"
-                    android:fontFamily="sans-serif-black"
-                    android:gravity="center_vertical"
-                    android:paddingLeft="0dp"
-                    android:text="Thức ăn"
-                    android:textAlignment="center"
-                    android:textSize="20sp"
-                    tools:ignore="RtlCompat"
-                    android:textColor="@color/white"/>
-
-            </LinearLayout>
-            <GridView
-                android:id="@+id/gridfood"
-                android:layout_width="fill_parent"
-                android:layout_height="785dp"
-                android:horizontalSpacing="10dp"
-                android:numColumns="2"
-                android:scrollbarStyle="outsideOverlay"
-                android:scrollbars="vertical"
-                android:verticalScrollbarPosition="right"
-                android:verticalSpacing="10dp">
-            </GridView>
-            <LinearLayout
-                android:layout_marginBottom="10dp"
-                android:layout_marginVertical="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:layout_marginTop="0dp"
-                android:background="@drawable/my_custom_background"
-                android:orientation="horizontal"
-                android:id="@+id/nav_gridstore">
-
-                <TextView
-                    android:id="@+id/txtTitleStore"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@color/app_bar_color"
-                    android:fontFamily="sans-serif-black"
-                    android:gravity="center_vertical"
-                    android:paddingLeft="0dp"
-                    android:text="Cửa hàng"
-                    android:textAlignment="center"
-                    android:textSize="20sp"
-                    tools:ignore="RtlCompat"
-                    android:textColor="@color/white"/>
-            </LinearLayout>
-            <GridView
-                android:id="@+id/gridstore"
-                android:layout_width="fill_parent"
-                android:layout_height="785dp"
-                android:horizontalSpacing="10dp"
-                android:numColumns="2"
-                android:scrollbarStyle="outsideOverlay"
-                android:scrollbars="vertical"
-                android:verticalScrollbarPosition="right"
-                android:verticalSpacing="10dp">
-            </GridView>
-        </LinearLayout>
-    </ScrollView>
+            android:horizontalSpacing="5dp"
+            android:layout_margin="5dp"
+            android:numColumns="2"
+            android:scrollbarStyle="outsideOverlay"
+            android:scrollbars="vertical"
+            android:verticalScrollbarPosition="right"
+            android:verticalSpacing="10dp">
+        </GridView>
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

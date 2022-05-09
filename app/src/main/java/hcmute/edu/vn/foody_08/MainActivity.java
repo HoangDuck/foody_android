@@ -44,8 +44,8 @@ import hcmute.edu.vn.foody_08.view.RestaurantActivity;
 @RequiresApi(api = Build.VERSION_CODES.O)
 public class MainActivity extends AppCompatActivity {
     private BottomNavigationView bottomNavigation;
-    private ShopSevice shopSevice =new ShopSevice(this);
-    private FoodService foodService =new FoodService(this);
+    private ShopSevice shopSevice = new ShopSevice(this);
+    private FoodService foodService = new FoodService(this);
     private OrderService orderService = new OrderService(this);
     private OrderDetailService orderDetailService = new OrderDetailService(this);
     private UserService userService = new UserService(this);
@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
     private NavigationBarView.OnItemSelectedListener navListener = item -> {
         Fragment selectedFragment;
         System.out.println(item.getItemId());
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.home: {
                 selectedFragment = new HomeFragment();
                 break;
@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
         }
         System.out.println(selectedFragment);
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.flFragment,selectedFragment).commit();
+                .replace(R.id.flFragment, selectedFragment).commit();
         return true;
     };
 
@@ -86,37 +86,39 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigation.setSelectedItemId(R.id.home);
         System.out.println("==================================================================================================================");
 
-//            Shop shop = new Shop("apple","url","des","address","status",20.0,LocalTime.now(),LocalTime.now(),"phone");
-//            Shop shop2 = new Shop("apple2","url","des","address","status",20.0,LocalTime.now(),LocalTime.now(),"phone");
-//            shopSevice.createShop(shop);
-//            shopSevice.createShop(shop2);
-//            shopSevice.getAllShops();
-//            Food food = new Food("bún bò huê","url",1,"ngon lắm",20000.0,"còn nhiều");
-//            Food food2 = new Food("Hủ tíu","url",2,"ngon lắm",20000.0,"còn nhiều");
-//            foodService.createFood(food);
-//            foodService.createFood(food2);
-//            Order order = new Order(1,"mới mua",180000.0, LocalDateTime.now(),10,"tam hà");
-//            User user = new  User( "String name", "String avatar", "String email", "String password", "String address", "String gender"," String phone");
-//            userService.createUser(user);
-//            int idorder = orderService.createOrder(order);
-//            List<OrderDetail> list = new ArrayList<>();
-//            OrderDetail orderDetail = new OrderDetail(idorder,1,10,1000.0);
-//            OrderDetail orderDetail2 = new OrderDetail(idorder,2,5,5000.0);
-//            OrderDetail orderDetail3 = new OrderDetail(idorder,2,6,6000.0);
-//            OrderDetail orderDetail4 = new OrderDetail(idorder,1,1,1000.0);
-//            list.add(orderDetail);
-//            list.add(orderDetail2);
-//            list.add(orderDetail3);
-//            list.add(orderDetail4);
-//            orderDetailService.createListOrderDetail(list);
-        User user = userService.Login(new LoginDTO("String email","String password"));
+//        Shop shop = new Shop("apple", "url", "des", "address", "status", 20.0, LocalTime.now(), LocalTime.now(), "phone");
+//        Shop shop2 = new Shop("apple2", "url", "des", "address", "status", 20.0, LocalTime.now(), LocalTime.now(), "phone");
+//        shopSevice.createShop(shop);
+//        shopSevice.createShop(shop2);
+//        shopSevice.getAllShops();
+//        Food food = new Food("bún bò huê", "url", 1, "ngon lắm", 20000.0, "còn nhiều");
+//        Food food2 = new Food("Hủ tíu", "url", 2, "ngon lắm", 20000.0, "còn nhiều");
+//        foodService.createFood(food);
+//        foodService.createFood(food2);
+//        Order order = new Order(1, "mới mua", 180000.0, LocalDateTime.now(), 10, "tam hà");
+//        User user = new User("String name", "String avatar", "String email", "String password", "String address", "String gender", " String phone");
+//        userService.createUser(user);
+//        int idorder = orderService.createOrder(order);
+//        List<OrderDetail> list = new ArrayList<>();
+//        OrderDetail orderDetail = new OrderDetail(idorder, 1, 10, 1000.0);
+//        OrderDetail orderDetail2 = new OrderDetail(idorder, 2, 5, 5000.0);
+//        OrderDetail orderDetail3 = new OrderDetail(idorder, 2, 6, 6000.0);
+//        OrderDetail orderDetail4 = new OrderDetail(idorder, 1, 1, 1000.0);
+//        list.add(orderDetail);
+//        list.add(orderDetail2);
+//        list.add(orderDetail3);
+//        list.add(orderDetail4);
+//        orderDetailService.createListOrderDetail(list);
+        User user = userService.Login(new LoginDTO("String email", "String password"));
         ShareReferences shareReferences = ShareReferences.getInstance(this);
         shareReferences.SaveGlobalUser(user);
 
         System.out.println("========================================================================================================");
 
     }
-    private void test(){
+
+    private void test() {
 
     }
+
 }

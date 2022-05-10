@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import hcmute.edu.vn.foody_08.R;
+import hcmute.edu.vn.foody_08.SearchActivity;
 
 public class RestaurantActivity extends AppCompatActivity {
 
@@ -25,5 +26,10 @@ public class RestaurantActivity extends AppCompatActivity {
         //truyền đi và nhận lại dữ liệu qua intent dạng json
         startActivity(intent);
 
+    }
+
+    public void openSearchView(View view) {
+        Intent intent=new Intent(RestaurantActivity.this, SearchActivity.class);
+        startActivity(intent);
     }
 }

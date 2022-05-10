@@ -20,7 +20,9 @@ import java.util.Date;
 import java.util.List;
 
 import hcmute.edu.vn.foody_08.fragment.AccountFragment;
+import hcmute.edu.vn.foody_08.fragment.CartFragment;
 import hcmute.edu.vn.foody_08.fragment.HomeFragment;
+import hcmute.edu.vn.foody_08.fragment.OrderFragment;
 import hcmute.edu.vn.foody_08.model.DAO.UserDAO;
 import hcmute.edu.vn.foody_08.model.DTO.payload.LoginDTO;
 import hcmute.edu.vn.foody_08.model.Food;
@@ -57,6 +59,14 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.home: {
                 selectedFragment = new HomeFragment();
+                break;
+            }
+            case R.id.cart: {
+                selectedFragment=new CartFragment();
+                break;
+            }
+            case R.id.order: {
+                selectedFragment=new OrderFragment();
                 break;
             }
             case R.id.account: {

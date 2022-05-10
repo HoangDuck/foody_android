@@ -1,8 +1,9 @@
 package hcmute.edu.vn.foody_08.model;
 
 
+import java.io.Serializable;
 
-public class Food {
+public class Food implements Serializable {
     private int id;
     private String name;
     private String image;

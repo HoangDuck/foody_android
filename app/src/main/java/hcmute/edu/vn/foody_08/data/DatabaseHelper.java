@@ -25,7 +25,7 @@ import hcmute.edu.vn.foody_08.ultil.MyApp;
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "foody";
-    private static final int DATABASE_VERSION = 12;
+    private static final int DATABASE_VERSION = 18;
 
     private static DatabaseHelper databaseHelper;
 

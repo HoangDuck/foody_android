@@ -14,13 +14,13 @@
         tools:layout_editor_absoluteY="-72dp">
 
         <LinearLayout
-            android:id="@+id/search_bar"
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:layout_marginTop="0dp"
             android:background="@color/app_bar_color"
             android:orientation="horizontal">
             <LinearLayout
+                android:id="@+id/search_bar"
                 android:layout_height="match_parent"
                 android:layout_width="match_parent"
                 android:layout_margin="10dp"

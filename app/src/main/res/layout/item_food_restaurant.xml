@@ -1,25 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ItemSearchActivity">
+    android:orientation="vertical">
     <LinearLayout
-        android:id="@+id/itemFood"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
         android:layout_marginTop="20dp"
         android:orientation="horizontal">
 
         <ImageView
             android:id="@+id/imageViewFood"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_gravity="center_vertical"
             android:background="@color/black"
-            android:src="@drawable/ga_sa_tac_mot" />
+            android:src="@drawable/ga_sa" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -32,10 +28,15 @@
                 android:id="@+id/textViewFoodName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Chân gà rút xương sốt Thái - Hộp nhỏ"
+                android:text="Chân gà rút xương sả tắc (nhỏ)"
                 android:textColor="@color/black"
-                android:textSize="25dp"
                 android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textViewDescriptionFood"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hộp - 250gr chân gà rút xương kèm nước chấm siêu ngon" />
 
             <TextView
                 android:id="@+id/textViewPriceFood"
@@ -43,15 +44,21 @@
                 android:layout_height="wrap_content"
                 android:text="110,000 VND"
                 android:textColor="@color/black"
-                android:textSize="20dp"
                 android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/textViewDescriptionFood"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Món mới - kèm nước chấm chua chua cay cay" />
-
         </LinearLayout>
+
+        <ImageView
+            android:id="@+id/btn_add_food_queue"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_vertical"
+            android:onClick="openSearchView"
+            android:src="@drawable/ic_baseline_add_circle_24" />
     </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray" />
+
 </LinearLayout>

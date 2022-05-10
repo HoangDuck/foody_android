@@ -8,51 +8,53 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import hcmute.edu.vn.foody_08.R;
+import hcmute.edu.vn.foody_08.model.Food;
 
 public class OrderActivity extends AppCompatActivity {
-    private int quantity=0;
+    ImageView imageViewFood;
+    TextView textViewFoodName,textViewPriceFood,textViewDescriptionFood;
+
+    private int quantity=1;
     TextView txt_quantity;
     ImageButton btn_increase, btn_decrease;
+    Food food;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order);
+        getData();
         addControl();
+        setData();
         addEvent();
+    }
+
+    private void setData() {
+        textViewFoodName.setText(food.getName());
+        textViewPriceFood.setText(food.getPrice() + " VND");
+        textViewDescriptionFood.setText(food.getDescription());//set Image
+        Picasso.get().load(food.getImage()).into(imageViewFood);
+    }
+
+    private void getData() {
+        Intent intent=getIntent();
+        food= (Food) intent.getSerializableExtra("food");
     }
 
     private void addEvent() {
         btn_increase.setOnClickListener(view -> {
             quantity++;
-            txt_quantity.setText("VN ");//bước này khá phiền phức
+            txt_quantity.setText(Integer.toString(quantity));
         });
         btn_decrease.setOnClickListener(view -> {
-            quantity--;
-            if(quantity>=0){
-
-            }
-            txt_quantity.setText("");//bước này khá phiền phức
-
-        });
-        txt_quantity.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                if(charSequence.equals("0")){
-
-                }
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-
+            if(quantity!=1){
+                quantity--;
+                txt_quantity.setText(Integer.toString(quantity));
             }
         });
     }
@@ -61,6 +63,10 @@ public class OrderActivity extends AppCompatActivity {
         txt_quantity=findViewById(R.id.txt_quantity);
         btn_increase=findViewById(R.id.btn_increase_quantity);
         btn_decrease=findViewById(R.id.btn_decrease_quantity);
+        imageViewFood=findViewById(R.id.imageViewFood);
+        textViewFoodName=findViewById(R.id.textViewFoodName);
+        textViewPriceFood=findViewById(R.id.textViewPriceFood);
+        textViewDescriptionFood=findViewById(R.id.textViewDescriptionFood);
     }
 
     public void goToYourCart(View view) {

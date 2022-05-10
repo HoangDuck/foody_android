@@ -1,9 +1,10 @@
 package hcmute.edu.vn.foody_08.model;
 
+import java.io.Serializable;
 import java.time.LocalTime;
 
 
-public class Shop {
+public class Shop implements Serializable {
     private int id;
     private String name;
     private String image;

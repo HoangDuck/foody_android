@@ -121,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
 //        orderDetailService.createListOrderDetail(list);
         User user = userService.Login(new LoginDTO("String email", "String password"));
         ShareReferences shareReferences = ShareReferences.getInstance(this);
-        shareReferences.SaveGlobalUser(user);
+        //shareReferences.SaveGlobalUser(user);
 
         System.out.println("========================================================================================================");
 

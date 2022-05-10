@@ -2,6 +2,8 @@ package hcmute.edu.vn.foody_08.adapter;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,12 +12,14 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
 import hcmute.edu.vn.foody_08.R;
 import hcmute.edu.vn.foody_08.model.Shop;
 import hcmute.edu.vn.foody_08.view.RestaurantActivity;
-
+//Tem adapter is adapter for gridview item food
 public class TemAdapter extends BaseAdapter {
     private Activity context;
     private int layout;
@@ -60,6 +64,7 @@ public class TemAdapter extends BaseAdapter {
             setData(holder,listRestaurant.get(i));
             holder.linearLayout.setOnClickListener(view1 -> {
                 Intent intent=new Intent(context, RestaurantActivity.class);
+                intent.putExtra("shop",listRestaurant.get(i));
                 context.startActivity(intent);
             });
         } else {
@@ -77,8 +82,9 @@ public class TemAdapter extends BaseAdapter {
 
     private void setData(ViewHolder viewHolder,Shop shop){
         viewHolder.textViewNameRestaurant.setText(shop.getName());
-        viewHolder.getTextViewRestaurantDescription.setText(shop.getDescription());
+        viewHolder.getTextViewRestaurantDescription.setText(shop.getDescription().substring(0,20)+"...");
         //set Image
+        Picasso.get().load(shop.getImage()).into(viewHolder.imageViewRestaurant);
     }
 
     private class ViewHolder {

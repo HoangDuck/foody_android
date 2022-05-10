@@ -132,7 +132,7 @@ public class ShopDAO {
         contentValues.put(SHOP_IMAGE, shop.getImage());
         contentValues.put(SHOP_DESCRIPTION, shop.getDescription());
         contentValues.put(SHOP_ADDRESS, shop.getAddress());
-        contentValues.put(SHOP_STATUS, shop.getAddress());
+        contentValues.put(SHOP_STATUS, shop.getStatus());
         contentValues.put(SHOP_RATING, shop.getRating());
         contentValues.put(SHOP_OPEN_TIME, shop.getOpenTime().toString());
         contentValues.put(SHOP_CLOSE_TIME, shop.getCloseTime().toString());

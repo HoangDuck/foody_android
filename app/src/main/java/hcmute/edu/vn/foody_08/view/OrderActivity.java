@@ -80,6 +80,7 @@ public class OrderActivity extends AppCompatActivity {
     }
 
     public void addToCartAndFinish(View view) {
-        finish();
+        Intent intent=new Intent(this,OrderAllCartActivity.class);
+        startActivity(intent);
     }
 }

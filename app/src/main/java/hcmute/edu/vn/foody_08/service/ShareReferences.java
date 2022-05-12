@@ -25,31 +25,31 @@ public class ShareReferences {
     }
 
     private ShareReferences(Context context) {
-        sharedPreferences = context.getSharedPreferences("YourCustomNamedPreference",Context.MODE_PRIVATE);
+        sharedPreferences = context.getSharedPreferences("YourCustomNamedPreference", Context.MODE_PRIVATE);
     }
 
-    public void saveData(String key,String value) {
+    public void saveData(String key, String value) {
         SharedPreferences.Editor prefsEditor = sharedPreferences.edit();
-        prefsEditor .putString(key, value);
+        prefsEditor.putString(key, value);
         prefsEditor.commit();
     }
 
     public String getData(String key) {
-        if (sharedPreferences!= null) {
+        if (sharedPreferences != null) {
             return sharedPreferences.getString(key, "");
         }
         return "";
     }
 
-    public void SaveGlobalUser(User user){
+    public void SaveGlobalUser(User user) {
         SharedPreferences.Editor prefsEditor = sharedPreferences.edit();
-        prefsEditor .putString(GLOBAL_USER_ID, String.valueOf(user.getId()));
-        prefsEditor .putString(GLOBAL_USER_NAME, user.getName());
-        prefsEditor .putString(GLOBAL_USER_EMAIL, user.getEmail());
-        prefsEditor .putString(GLOBAL_USER_AVATAR, user.getAvatar());
-        prefsEditor .putString(GLOBAL_USER_ADDRESS, user.getAddress());
-        prefsEditor .putString(GLOBAL_USER_GENDER, user.getGender());
-        prefsEditor .putString(GLOBAL_USER_PHONE, user.getPhone());
+        prefsEditor.putString(GLOBAL_USER_ID, String.valueOf(user.getId()));
+        prefsEditor.putString(GLOBAL_USER_NAME, user.getName());
+        prefsEditor.putString(GLOBAL_USER_EMAIL, user.getEmail());
+        prefsEditor.putString(GLOBAL_USER_AVATAR, user.getAvatar());
+        prefsEditor.putString(GLOBAL_USER_ADDRESS, user.getAddress());
+        prefsEditor.putString(GLOBAL_USER_GENDER, user.getGender());
+        prefsEditor.putString(GLOBAL_USER_PHONE, user.getPhone());
         prefsEditor.commit();
     }
 }

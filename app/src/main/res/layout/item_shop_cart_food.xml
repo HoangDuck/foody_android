@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <View
+        android:id="@+id/line1_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:background="@android:color/darker_gray"/>
+
+    <LinearLayout
+        android:id="@+id/shop_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txt_restaurant_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Thành mập - Chân Gà Rút Xương Ngâm Sả Tắc - Bạch Đằng - Shop Online"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txt_restaurant_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Địa chỉ: 159/49/9 Bạch Đằng, P.2, Quận Tân Bình,TP.HCM"
+            android:textColor="@color/black"
+            android:textSize="15dp" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/line2_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:background="@android:color/darker_gray"/>
+    <ListView
+        android:id="@+id/listViewFoodCart"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</LinearLayout>

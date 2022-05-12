@@ -19,8 +19,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="1"
             android:layout_margin="10dp"
+            android:layout_weight="1"
             android:gravity="center"
             android:text="Giỏ hàng của bạn"
             android:textColor="@color/white"
@@ -28,218 +28,29 @@
 
     </LinearLayout>
 
-    <View
-        android:id="@+id/line1_horizontal"
+    <ListView
+        android:id="@+id/listViewFoodCart"
         android:layout_width="match_parent"
-        android:layout_height="8dp"
-        android:background="@android:color/darker_gray"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appBarShop" />
-
-    <LinearLayout
-        android:id="@+id/shop_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:orientation="vertical"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/line1_horizontal">
-
-        <TextView
-            android:id="@+id/txt_restaurant_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Thành mập - Chân Gà Rút Xương Ngâm Sả Tắc - Bạch Đằng - Shop Online"
-            android:textColor="@color/black"
-            android:textSize="20dp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/txt_restaurant_address"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Địa chỉ: 159/49/9 Bạch Đằng, P.2, Quận Tân Bình,TP.HCM"
-            android:textColor="@color/black"
-            android:textSize="15dp" />
-    </LinearLayout>
-
-    <View
-        android:id="@+id/line2_horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="8dp"
-        android:background="@android:color/darker_gray"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/shop_name" />
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="match_parent"
         app:layout_constraintBottom_toTopOf="@+id/bottom_app_bar"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/line2_horizontal">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:id="@+id/item1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:orientation="vertical"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/line2_horizontal">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Chân gà rút xương sả tắc (nhỏ)"
-                        android:textColor="@color/black"
-                        android:textSize="20dp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="110,000 VND"
-                        android:textColor="@color/black"
-                        android:textSize="20dp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/quatity1"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:gravity="end"
-                    android:orientation="horizontal"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent">
-
-                    <ImageButton
-
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_gravity="center_vertical"
-                        android:background="@color/white"
-                        android:src="@drawable/ic_baseline_remove_circle_outline_24" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:text="01"
-                        android:textColor="@color/black"
-                        android:textSize="20dp" />
-
-                    <ImageButton
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_gravity="center_vertical"
-                        android:background="@color/white"
-                        android:src="@drawable/ic_baseline_add_circle_outline_24" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@android:color/darker_gray"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/item1" />
-
-            <LinearLayout
-                android:id="@+id/item2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:orientation="vertical"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/item1">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Chân gà rút xương ngâm sả tắc"
-                        android:textColor="@color/black"
-                        android:textSize="20dp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="210,000 VND"
-                        android:textColor="@color/black"
-                        android:textSize="20dp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/quatity2"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:gravity="end"
-                    android:orientation="horizontal"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent">
-
-                    <ImageButton
-
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_gravity="center_vertical"
-                        android:background="@color/white"
-                        android:src="@drawable/ic_baseline_remove_circle_outline_24" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:text="01"
-                        android:textColor="@color/black"
-                        android:textSize="20dp" />
-
-                    <ImageButton
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_gravity="center_vertical"
-                        android:background="@color/white"
-                        android:src="@drawable/ic_baseline_add_circle_outline_24" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@android:color/darker_gray"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/item2" />
-        </LinearLayout>
-    </ScrollView>
+        app:layout_constraintTop_toBottomOf="@+id/appBarShop"
+        android:visibility="invisible"/>
+    <TextView
+        android:id="@+id/textViewEmptyCart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:textColor="@color/black"
+        android:text="Giỏ hàng của bạn đang trống"
+        android:textStyle="bold"
+        android:visibility="visible"/>
 
     <LinearLayout
         android:id="@+id/bottom_app_bar"
@@ -268,10 +79,11 @@
                 android:id="@+id/total_money"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="320,000 VND"
+                android:text="0 VND"
                 android:textColor="@color/black"
                 android:textSize="20dp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:visibility="visible"/>
         </LinearLayout>
 
         <Button
@@ -281,7 +93,6 @@
             android:layout_gravity="center_horizontal"
             android:layout_margin="10dp"
             android:backgroundTint="@color/app_bar_color"
-            android:onClick="paymentYourCart"
             android:text="Đặt đơn"
             android:textStyle="bold" />
     </LinearLayout>

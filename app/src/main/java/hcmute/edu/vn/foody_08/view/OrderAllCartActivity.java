@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import hcmute.edu.vn.foody_08.R;
+import hcmute.edu.vn.foody_08.service.ShareReferences;
 
 public class OrderAllCartActivity extends AppCompatActivity {
 
@@ -14,6 +15,24 @@ public class OrderAllCartActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_all_cart);
+        checkLogin();
+    }
+
+    private boolean checkLogin() {
+        ShareReferences shareReferences=ShareReferences.getInstance(this);
+        try{
+            String user=shareReferences.getData("user");
+            if(user==""){
+                Intent intent=new Intent(this, LoginRegisterActivity.class);
+                startActivity(intent);
+                return false;
+            }
+        }catch (Exception e){
+            Intent intent=new Intent(this, LoginRegisterActivity.class);
+            startActivity(intent);
+            return false;
+        }
+        return true;
     }
 
     public void paymentYourCart(View view) {

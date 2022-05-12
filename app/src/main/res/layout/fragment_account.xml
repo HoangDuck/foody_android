@@ -130,7 +130,7 @@
                         android:fontFamily="sans-serif-black"
                         android:gravity="center_vertical"
                         android:paddingLeft="20dp"
-                        android:text="Thông tin cập nhập"
+                        android:text="Thông tin cập nhật"
                         android:textSize="20sp" />
 
                     <TextView
@@ -166,7 +166,7 @@
                         android:fontFamily="sans-serif-black"
                         android:gravity="center_vertical"
                         android:paddingLeft="20dp"
-                        android:text="Đăng xuất"
+                        android:text="Đăng nhập"
                         android:textSize="20sp" />
 
                     <TextView

@@ -285,4 +285,15 @@
 <!--            android:text="Đặt đơn"-->
 <!--            android:textStyle="bold" />-->
 <!--    </LinearLayout>-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Tính năng đang được phát triển"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textSize="20dp"/>
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

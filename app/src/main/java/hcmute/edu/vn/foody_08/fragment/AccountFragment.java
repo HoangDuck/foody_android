@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import hcmute.edu.vn.foody_08.R;
 import hcmute.edu.vn.foody_08.UserInfoActivity;
+import hcmute.edu.vn.foody_08.service.ShareReferences;
 import hcmute.edu.vn.foody_08.view.LoginRegisterActivity;
 
 public class AccountFragment extends Fragment {
@@ -42,8 +43,10 @@ public class AccountFragment extends Fragment {
         txtUserInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(view.getContext(),UserInfoActivity.class);
-                startActivity(intent);
+                if(checkLogin()){
+                    Intent intent=new Intent(view.getContext(),UserInfoActivity.class);
+                    startActivity(intent);
+                }
             }
         });
         txtUserInfoLogout=view.findViewById(R.id.txtLogoutIcon);
@@ -55,6 +58,23 @@ public class AccountFragment extends Fragment {
             }
         });
 
+    }
+
+    private Boolean checkLogin() {
+        ShareReferences shareReferences=ShareReferences.getInstance(getContext());
+        try{
+            String user=shareReferences.getData("user");
+            if(user==""){
+                Intent intent=new Intent(getContext(), LoginRegisterActivity.class);
+                startActivity(intent);
+                return false;
+            }
+        }catch (Exception e){
+            Intent intent=new Intent(getContext(), LoginRegisterActivity.class);
+            startActivity(intent);
+            return false;
+        }
+        return true;
     }
 
 }

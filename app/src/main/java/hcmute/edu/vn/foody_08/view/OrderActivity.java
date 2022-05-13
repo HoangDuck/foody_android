@@ -15,15 +15,17 @@ import com.squareup.picasso.Picasso;
 
 import hcmute.edu.vn.foody_08.R;
 import hcmute.edu.vn.foody_08.model.Food;
+import hcmute.edu.vn.foody_08.service.ShareReferences;
 
 public class OrderActivity extends AppCompatActivity {
     ImageView imageViewFood;
-    TextView textViewFoodName,textViewPriceFood,textViewDescriptionFood;
+    TextView textViewFoodName, textViewPriceFood, textViewDescriptionFood;
 
-    private int quantity=1;
+    private int quantity = 1;
     TextView txt_quantity;
     ImageButton btn_increase, btn_decrease;
     Food food;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,8 +44,8 @@ public class OrderActivity extends AppCompatActivity {
     }
 
     private void getData() {
-        Intent intent=getIntent();
-        food= (Food) intent.getSerializableExtra("food");
+        Intent intent = getIntent();
+        food = (Food) intent.getSerializableExtra("food");
     }
 
     private void addEvent() {
@@ -52,7 +54,7 @@ public class OrderActivity extends AppCompatActivity {
             txt_quantity.setText(Integer.toString(quantity));
         });
         btn_decrease.setOnClickListener(view -> {
-            if(quantity!=1){
+            if (quantity != 1) {
                 quantity--;
                 txt_quantity.setText(Integer.toString(quantity));
             }
@@ -60,17 +62,22 @@ public class OrderActivity extends AppCompatActivity {
     }
 
     private void addControl() {
-        txt_quantity=findViewById(R.id.txt_quantity);
-        btn_increase=findViewById(R.id.btn_increase_quantity);
-        btn_decrease=findViewById(R.id.btn_decrease_quantity);
-        imageViewFood=findViewById(R.id.imageViewFood);
-        textViewFoodName=findViewById(R.id.textViewFoodName);
-        textViewPriceFood=findViewById(R.id.textViewPriceFood);
-        textViewDescriptionFood=findViewById(R.id.textViewDescriptionFood);
+        txt_quantity = findViewById(R.id.txt_quantity);
+        btn_increase = findViewById(R.id.btn_increase_quantity);
+        btn_decrease = findViewById(R.id.btn_decrease_quantity);
+        imageViewFood = findViewById(R.id.imageViewFood);
+        textViewFoodName = findViewById(R.id.textViewFoodName);
+        textViewPriceFood = findViewById(R.id.textViewPriceFood);
+        textViewDescriptionFood = findViewById(R.id.textViewDescriptionFood);
     }
 
     public void goToYourCart(View view) {
-        Intent intent=new Intent(this,OrderAllCartActivity.class);
+        Intent intent;
+        if (checkLogin()) {
+            intent = new Intent(this, OrderAllCartActivity.class);
+        } else {
+            intent = new Intent(this, LoginRegisterActivity.class);
+        }
         //truyền đi và nhận lại dữ liệu qua intent dạng json
         startActivity(intent);
     }
@@ -80,7 +87,26 @@ public class OrderActivity extends AppCompatActivity {
     }
 
     public void addToCartAndFinish(View view) {
-        Intent intent=new Intent(this,OrderAllCartActivity.class);
+        Intent intent;
+        if (checkLogin()) {
+            intent = new Intent(this, OrderAllCartActivity.class);
+        }
+        else {
+            intent = new Intent(this, OrderAllCartActivity.class);
+        }
         startActivity(intent);
+    }
+
+    private boolean checkLogin() {
+        ShareReferences shareReferences = ShareReferences.getInstance(this);
+        try {
+            String user = shareReferences.getData("user");
+            if (user.equals("")) {
+                return false;
+            }
+        } catch (Exception e) {
+            return false;
+        }
+        return true;
     }
 }

@@ -21,7 +21,9 @@ import java.util.Comparator;
 import java.util.List;
 
 import hcmute.edu.vn.foody_08.R;
+import hcmute.edu.vn.foody_08.adapter.CartFoodAdapter;
 import hcmute.edu.vn.foody_08.model.Food;
+import hcmute.edu.vn.foody_08.model.OrderDetail;
 import hcmute.edu.vn.foody_08.model.Shop;
 import hcmute.edu.vn.foody_08.service.FoodService;
 import hcmute.edu.vn.foody_08.service.ShareReferences;
@@ -34,12 +36,11 @@ import hcmute.edu.vn.foody_08.view.PaymentResultActivity;
 public class CartFragment extends Fragment {
     Button btn_payment;
     ListView listViewFoodCart;
-    TextView textViewEmptyCart;
-
-    List<Shop> listAllShop;
-    List<Food> listAllFood;
-    List<Shop> listShop;
-    List<Food> listFood;
+    TextView txt_restaurant_name,txt_restaurant_address;
+    TextView total_money;
+    List<OrderDetail> listOrderDetail;
+    List<Shop> shopList;
+    Shop shop;
 
     int totalPrice=0;
 
@@ -59,94 +60,43 @@ public class CartFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-//        if(checkLogin()){
-//            addControl(view);
-//            getData();
-//            setData();
-//            addEvent(view);
-//        }
         addControl(view);
-        getData();
-        setData();
         addEvent(view);
-
+        if(checkLogin()){
+            getData();
+            setData();
+        }
+        else {
+            Intent intent=new Intent(getContext(), LoginRegisterActivity.class);
+            startActivity(intent);
+        }
     }
 
     private boolean checkLogin() {
-        ShareReferences shareReferences=ShareReferences.getInstance(getContext());
         try{
             String user=shareReferences.getData("user");
-            if(user==""){
-                Intent intent=new Intent(getContext(), LoginRegisterActivity.class);
-                startActivity(intent);
+            if(user.equals("")){
                 return false;
             }
         }catch (Exception e){
-            Intent intent=new Intent(getContext(), LoginRegisterActivity.class);
-            startActivity(intent);
             return false;
         }
         return true;
     }
 
     private void setData() {
-        if(listShop.size()>0){
-            listViewFoodCart.setVisibility(View.VISIBLE);
-            textViewEmptyCart.setVisibility(View.INVISIBLE);
-        }
-        else {
-            textViewEmptyCart.setVisibility(View.VISIBLE);
-            //listViewFoodCart.setVisibility(View.INVISIBLE);
-        }
+        CartFoodAdapter cartFoodAdapter=new CartFoodAdapter(getActivity(), R.layout.item_cart_food,listOrderDetail);
+        listViewFoodCart.setAdapter(cartFoodAdapter);
+        txt_restaurant_name.setText(shop.getName());
+        txt_restaurant_address.setText(shop.getAddress());
     }
 
     private void getData() {
-        //get shop list
-        listAllShop=new ArrayList<>();
+        listOrderDetail=new ArrayList<>();
+        shopList=new ArrayList<>();
         ShopSevice shopSevice=new ShopSevice(getContext());
-        listAllShop=shopSevice.getAllShops();
-        //get all food list
-        listAllFood=new ArrayList<>();
-        FoodService foodService=new FoodService(getContext());
-        listAllFood=foodService.getAllFoods();
-        //get food list from shared preferences
-
-        listFood=new ArrayList<>();
-        listShop=new ArrayList<>();
-        try {
-            String listFoodIdString=shareReferences.getData("listFood");
-            List<String> listFoodId;
-            listFoodId= new ArrayList<>(Arrays.asList(listFoodIdString.split(",")));
-            mappingListFood(listFoodId);
-            mappingListShop(listFood);
-            sortFoodListByIdShop();
-        }catch (Exception e){
-
-        }
-    }
-
-    private void mappingListShop(List<Food> listFood) {
-        for(int i=0;i<listFood.size();i++){
-            for(int j=0;j<listAllShop.size();j++){
-                if(listFood.get(i).getShopId()==listAllShop.get(j).getId()){
-                    listShop.add(listAllShop.get(j));
-                }
-            }
-        }
-    }
-
-    private void mappingListFood(List<String> listFoodId) {
-        for(int i=0;i<listFoodId.size();i++){
-            for(int j=0;j<listAllFood.size();j++){
-                if(Integer.parseInt(listFoodId.get(i))==listAllFood.get(j).getId()){
-                    listFood.add(listAllFood.get(j));
-                }
-            }
-        }
-    }
-
-    private void sortFoodListByIdShop(){
-        Collections.sort(listFood, Food.FoodRollno);
+        shopList=shopSevice.getAllShops();
+        shop=shopList.get(0);
     }
 
 
@@ -157,11 +107,18 @@ public class CartFragment extends Fragment {
                 startActivity(intent);
             }
         });
+        if(totalPrice==0){
+            txt_restaurant_name.setText("Giỏ hàng của bạn đang trống");
+            txt_restaurant_address.setForegroundGravity(17);
+            txt_restaurant_address.setText("");
+        }
     }
 
     private void addControl(View view) {
         btn_payment=view.findViewById(R.id.btn_payment);
         listViewFoodCart=view.findViewById(R.id.listViewFoodRestaurant);
-        textViewEmptyCart=view.findViewById(R.id.textViewEmptyCart);
+        txt_restaurant_address=view.findViewById(R.id.txt_restaurant_address);
+        txt_restaurant_name=view.findViewById(R.id.txt_restaurant_name);
+        total_money=view.findViewById(R.id.total_money);
     }
 }

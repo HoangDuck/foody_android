@@ -11,7 +11,10 @@ import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.ZoneOffset;
@@ -23,6 +26,7 @@ import hcmute.edu.vn.foody_08.fragment.AccountFragment;
 import hcmute.edu.vn.foody_08.fragment.CartFragment;
 import hcmute.edu.vn.foody_08.fragment.HomeFragment;
 import hcmute.edu.vn.foody_08.fragment.OrderFragment;
+import hcmute.edu.vn.foody_08.model.CartItem;
 import hcmute.edu.vn.foody_08.model.DAO.UserDAO;
 import hcmute.edu.vn.foody_08.model.DTO.payload.LoginDTO;
 import hcmute.edu.vn.foody_08.model.Food;
@@ -122,7 +126,12 @@ public class MainActivity extends AppCompatActivity {
         User user = userService.Login(new LoginDTO("String email", "String password"));
         ShareReferences shareReferences = ShareReferences.getInstance(this);
         //shareReferences.SaveGlobalUser(user);
-
+        Gson gson=new Gson();
+        Type listType = new TypeToken<ArrayList<CartItem>>(){}.getType();
+        CartItem.cartItemList = gson.fromJson(shareReferences.getData("cartItemList"), listType);
+        if(CartItem.cartItemList==null){
+            CartItem.cartItemList=new ArrayList<>();
+        }
         System.out.println("========================================================================================================");
 
     }

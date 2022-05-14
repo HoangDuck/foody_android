@@ -1,6 +1,8 @@
 package hcmute.edu.vn.foody_08.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CartItem implements Serializable {
     private int id;
@@ -8,6 +10,8 @@ public class CartItem implements Serializable {
     private int shopId;
     private Double price;
     private int quantity;
+
+    public static List<CartItem> cartItemList=new ArrayList<>();
 
     public CartItem(int id, String name, int shopId, Double price, int quantity) {
         this.id = id;

@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import hcmute.edu.vn.foody_08.R;
+import hcmute.edu.vn.foody_08.model.CartItem;
 import hcmute.edu.vn.foody_08.model.Food;
 import hcmute.edu.vn.foody_08.model.OrderDetail;
 import hcmute.edu.vn.foody_08.service.FoodService;
@@ -25,25 +26,25 @@ import hcmute.edu.vn.foody_08.view.OrderActivity;
 public class CartFoodAdapter extends BaseAdapter {
     Activity context;
     int layout;
-    List<OrderDetail> listOrderDetail;
+    List<CartItem> listCartItem;
 
     List<Food> listFood;
     FoodService foodService;
 
-    public CartFoodAdapter(Activity context, int layout, List<OrderDetail> listOrderDetail) {
+    public CartFoodAdapter(Activity context, int layout, List<CartItem> listCartItem) {
         this.context = context;
         this.layout = layout;
-        this.listOrderDetail = listOrderDetail;
+        this.listCartItem = listCartItem;
     }
 
     @Override
     public int getCount() {
-        return listOrderDetail.size();
+        return listCartItem.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return listOrderDetail.get(position);
+        return listCartItem.get(position);
     }
 
     @Override
@@ -64,9 +65,9 @@ public class CartFoodAdapter extends BaseAdapter {
             //get data
             getData();
             //set data to each item
-            setData(holder, listOrderDetail.get(position));
+            setData(holder, listCartItem.get(position));
             //add event
-            addEvent(holder,listOrderDetail.get(position));
+            addEvent(holder,listCartItem.get(position));
         } else {
             holder = (CartFoodAdapter.ViewHolder) convertView.getTag();
         }
@@ -79,14 +80,14 @@ public class CartFoodAdapter extends BaseAdapter {
         listFood = foodService.getAllFoods();
     }
 
-    private void setData(ViewHolder holder, OrderDetail orderDetail) {
+    private void setData(ViewHolder holder, CartItem cartItem) {
 
         for (Food food : listFood
         ) {
-            if (food.getId() == orderDetail.getIdFood()) {
+            if (food.getId() == cartItem.getId()) {
                 holder.textViewFoodName.setText(food.getName());
                 holder.textViewPriceFood.setText(food.getPrice().toString());
-                holder.textViewQuantity.setText(orderDetail.getNum());
+                holder.textViewQuantity.setText(Integer.toString(cartItem.getQuantity()));
 
                 break;
             }
@@ -94,17 +95,17 @@ public class CartFoodAdapter extends BaseAdapter {
 
     }
 
-    private void addEvent(ViewHolder holder, OrderDetail orderDetail) {
+    private void addEvent(ViewHolder holder, CartItem cartItem) {
         holder.btn_decrease_quantity.setOnClickListener(v -> {
-            int temp=orderDetail.getNum();
+            int temp=cartItem.getQuantity();
             temp--;
-            orderDetail.setNum(temp);
+            cartItem.setQuantity(temp);
             holder.textViewQuantity.setText(temp);
         });
         holder.btn_increase_quantity.setOnClickListener(v -> {
-            int temp=orderDetail.getNum();
+            int temp=cartItem.getQuantity();
             temp++;
-            orderDetail.setNum(temp);
+            cartItem.setQuantity(temp);
             holder.textViewQuantity.setText(temp);
         });
     }

@@ -26,6 +26,7 @@ import java.util.List;
 
 import hcmute.edu.vn.foody_08.R;
 import hcmute.edu.vn.foody_08.adapter.CartFoodAdapter;
+import hcmute.edu.vn.foody_08.model.CartItem;
 import hcmute.edu.vn.foody_08.model.Food;
 import hcmute.edu.vn.foody_08.model.OrderDetail;
 import hcmute.edu.vn.foody_08.model.Shop;
@@ -42,7 +43,7 @@ public class CartFragment extends Fragment {
     ListView listViewFoodCart;
     TextView txt_restaurant_name,txt_restaurant_address;
     TextView total_money;
-    List<OrderDetail> listOrderDetail;
+    List<CartItem> cartItemList;
     List<Shop> shopList;
     Shop shop;
     Gson gson;
@@ -90,7 +91,7 @@ public class CartFragment extends Fragment {
     }
 
     private void setData() {
-        CartFoodAdapter cartFoodAdapter=new CartFoodAdapter(getActivity(), R.layout.item_cart_food,listOrderDetail);
+        CartFoodAdapter cartFoodAdapter=new CartFoodAdapter(getActivity(), R.layout.item_cart_food,cartItemList);
         listViewFoodCart.setAdapter(cartFoodAdapter);
         txt_restaurant_name.setText(shop.getName());
         txt_restaurant_address.setText(shop.getAddress());
@@ -98,7 +99,7 @@ public class CartFragment extends Fragment {
 
     private void getData() {
         gson=new Gson();
-        listOrderDetail=new ArrayList<>();
+        cartItemList=new ArrayList<>();
         //get list order detail
         shopList=new ArrayList<>();
         ShopSevice shopSevice=new ShopSevice(getContext());
@@ -111,7 +112,7 @@ public class CartFragment extends Fragment {
         btn_payment.setOnClickListener(v -> {
             if(totalPrice>0){
                 Intent intent=new Intent(view.getContext(), PaymentActivity.class);
-                intent.putExtra("listOrderDetails", gson.toJson(listOrderDetail));
+                intent.putExtra("listOrderDetails", gson.toJson(cartItemList));
                 startActivity(intent);
             }
         });

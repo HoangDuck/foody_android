@@ -18,11 +18,9 @@ public class ExampleUnitTest {
     @Test
     public void addition_isCorrect() {
         List<Integer> list=new ArrayList<>();
-        list.add(2);
-        list.add(3);
-        list.add(4);
         Gson gson=new Gson();
         String t=gson.toJson(list);
-        System.out.println(t);
+        Integer[] integerList=gson.fromJson("[1,2,3,4]",Integer[].class);
+        System.out.println(integerList[3]);
     }
 }

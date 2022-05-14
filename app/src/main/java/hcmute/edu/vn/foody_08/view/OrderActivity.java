@@ -34,7 +34,6 @@ public class OrderActivity extends AppCompatActivity {
     ImageButton btn_increase, btn_decrease;
     Food food;
     CartItem cartItem;
-    List<CartItem> cartItemList;
     ShareReferences shareReferences;
     Gson gson;
 
@@ -58,7 +57,6 @@ public class OrderActivity extends AppCompatActivity {
     private void getData() {
         gson = new Gson();
         shareReferences = ShareReferences.getInstance(this);
-        cartItemList = gson.fromJson(shareReferences.getData("cartItemList"), (Type) CartItem[].class);
         Intent intent = getIntent();
         food = (Food) intent.getSerializableExtra("food");
         cartItem = new CartItem(food.getId(), food.getName(), food.getShopId(), food.getPrice(), 1);
@@ -93,7 +91,7 @@ public class OrderActivity extends AppCompatActivity {
         Intent intent;
         if (checkLogin()) {
             intent = new Intent(this, OrderAllCartActivity.class);
-            intent.putExtra("cartItemList", (Serializable) cartItemList);
+            intent.putExtra("cartItemList", (Serializable) CartItem.cartItemList);
         } else {
             intent = new Intent(this, LoginRegisterActivity.class);
         }
@@ -107,14 +105,25 @@ public class OrderActivity extends AppCompatActivity {
 
     public void addToCartAndFinish(View view) {
         Intent intent;
-        if (checkLogin()) {
-            cartItemList.add(cartItem);
-            shareReferences.saveData("cartItemList", gson.toJson(cartItemList));
+        if (/*checkLogin()*/true) {
+            addFoodToListCart();
+            shareReferences.saveData("cartItemList", gson.toJson(CartItem.cartItemList));
             intent = new Intent(this, OrderAllCartActivity.class);
         } else {
             intent = new Intent(this, LoginRegisterActivity.class);
         }
         startActivity(intent);
+    }
+
+    public void addFoodToListCart() {
+        if (!CartItem.cartItemList.contains(cartItem)) {
+            CartItem.cartItemList.add(cartItem);
+        } else {
+            int tempIndex=CartItem.cartItemList.indexOf(cartItem);
+            int tempQuantity=CartItem.cartItemList.get(tempIndex).getQuantity();
+            tempQuantity++;
+            CartItem.cartItemList.get(tempIndex).setQuantity(tempQuantity);
+        }
     }
 
     private boolean checkLogin() {

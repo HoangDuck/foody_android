@@ -102,18 +102,4 @@ public class Food implements Serializable {
 //        params[5]=this.status;
 //        db.ExecQuery("insert into Foods (name,image,shopId,description,price,status) values(?,?,?,?,?,?)",params);
 //    }
-    public static Comparator<Food> FoodRollno = new Comparator<Food>() {
-        public int compare(Food f1, Food f2)
-        {
-
-            int rollno1 = f1.getShopId();
-            int rollno2 = f2.getShopId();
-
-            // For ascending order
-            return rollno1 - rollno2;
-
-            // For descending order
-            // rollno2-rollno1;
-        }
-    };
 }

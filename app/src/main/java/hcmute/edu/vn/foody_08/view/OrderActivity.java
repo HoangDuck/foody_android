@@ -11,10 +11,18 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+import com.google.gson.stream.JsonReader;
 import com.squareup.picasso.Picasso;
 
+import java.io.Serializable;
+import java.lang.reflect.Type;
+import java.util.List;
+
 import hcmute.edu.vn.foody_08.R;
+import hcmute.edu.vn.foody_08.model.CartItem;
 import hcmute.edu.vn.foody_08.model.Food;
+import hcmute.edu.vn.foody_08.model.OrderDetail;
 import hcmute.edu.vn.foody_08.service.ShareReferences;
 
 public class OrderActivity extends AppCompatActivity {
@@ -25,6 +33,10 @@ public class OrderActivity extends AppCompatActivity {
     TextView txt_quantity;
     ImageButton btn_increase, btn_decrease;
     Food food;
+    CartItem cartItem;
+    List<CartItem> cartItemList;
+    ShareReferences shareReferences;
+    Gson gson;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,18 +56,24 @@ public class OrderActivity extends AppCompatActivity {
     }
 
     private void getData() {
+        gson = new Gson();
+        shareReferences = ShareReferences.getInstance(this);
+        cartItemList = gson.fromJson(shareReferences.getData("cartItemList"), (Type) CartItem[].class);
         Intent intent = getIntent();
         food = (Food) intent.getSerializableExtra("food");
+        cartItem = new CartItem(food.getId(), food.getName(), food.getShopId(), food.getPrice(), 1);
     }
 
     private void addEvent() {
         btn_increase.setOnClickListener(view -> {
             quantity++;
+            cartItem.setQuantity(quantity);
             txt_quantity.setText(Integer.toString(quantity));
         });
         btn_decrease.setOnClickListener(view -> {
             if (quantity != 1) {
                 quantity--;
+                cartItem.setQuantity(quantity);
                 txt_quantity.setText(Integer.toString(quantity));
             }
         });
@@ -75,6 +93,7 @@ public class OrderActivity extends AppCompatActivity {
         Intent intent;
         if (checkLogin()) {
             intent = new Intent(this, OrderAllCartActivity.class);
+            intent.putExtra("cartItemList", (Serializable) cartItemList);
         } else {
             intent = new Intent(this, LoginRegisterActivity.class);
         }
@@ -89,16 +108,16 @@ public class OrderActivity extends AppCompatActivity {
     public void addToCartAndFinish(View view) {
         Intent intent;
         if (checkLogin()) {
+            cartItemList.add(cartItem);
+            shareReferences.saveData("cartItemList", gson.toJson(cartItemList));
             intent = new Intent(this, OrderAllCartActivity.class);
-        }
-        else {
-            intent = new Intent(this, OrderAllCartActivity.class);
+        } else {
+            intent = new Intent(this, LoginRegisterActivity.class);
         }
         startActivity(intent);
     }
 
     private boolean checkLogin() {
-        ShareReferences shareReferences = ShareReferences.getInstance(this);
         try {
             String user = shareReferences.getData("user");
             if (user.equals("")) {

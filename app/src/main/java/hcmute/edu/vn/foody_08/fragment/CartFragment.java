@@ -14,6 +14,10 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+import com.google.gson.stream.JsonReader;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -41,6 +45,7 @@ public class CartFragment extends Fragment {
     List<OrderDetail> listOrderDetail;
     List<Shop> shopList;
     Shop shop;
+    Gson gson;
 
     int totalPrice=0;
 
@@ -92,7 +97,9 @@ public class CartFragment extends Fragment {
     }
 
     private void getData() {
+        gson=new Gson();
         listOrderDetail=new ArrayList<>();
+        //get list order detail
         shopList=new ArrayList<>();
         ShopSevice shopSevice=new ShopSevice(getContext());
         shopList=shopSevice.getAllShops();
@@ -104,6 +111,7 @@ public class CartFragment extends Fragment {
         btn_payment.setOnClickListener(v -> {
             if(totalPrice>0){
                 Intent intent=new Intent(view.getContext(), PaymentActivity.class);
+                intent.putExtra("listOrderDetails", gson.toJson(listOrderDetail));
                 startActivity(intent);
             }
         });

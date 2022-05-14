@@ -116,14 +116,40 @@ public class OrderActivity extends AppCompatActivity {
     }
 
     public void addFoodToListCart() {
-        if (!CartItem.cartItemList.contains(cartItem)) {
+        try{
+            if(cartItem.getShopId()!=CartItem.cartItemList.get(0).getShopId()){
+                CartItem.cartItemList.clear();
+                CartItem.cartItemList.add(cartItem);
+                return;
+            }
+        }catch (Exception e){
+
+        }
+        if (!isCartItemInCart()) {
             CartItem.cartItemList.add(cartItem);
-        } else {
-            int tempIndex=CartItem.cartItemList.indexOf(cartItem);
+        }else {
+            int tempIndex=findIndexOfItemInCart();
             int tempQuantity=CartItem.cartItemList.get(tempIndex).getQuantity();
             tempQuantity++;
             CartItem.cartItemList.get(tempIndex).setQuantity(tempQuantity);
         }
+    }
+    private int findIndexOfItemInCart(){
+        int tempLength=CartItem.cartItemList.size();
+        for(int i=0;i<tempLength;i++){
+            if(cartItem.getId()==CartItem.cartItemList.get(i).getId())
+                return i;
+        }
+        return 0;
+    }
+
+    private boolean isCartItemInCart(){
+        for (CartItem cartItemFood: CartItem.cartItemList
+             ) {
+            if(cartItemFood.getId()==cartItem.getId())
+                return true;
+        }
+        return false;
     }
 
     private boolean checkLogin() {

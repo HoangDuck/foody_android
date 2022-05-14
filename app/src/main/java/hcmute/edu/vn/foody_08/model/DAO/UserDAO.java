@@ -1,4 +1,5 @@
 package hcmute.edu.vn.foody_08.model.DAO;
+import static hcmute.edu.vn.foody_08.ultil.constant.TABLE_SHOP;
 import static hcmute.edu.vn.foody_08.ultil.constant.TABLE_USER;
 import static hcmute.edu.vn.foody_08.ultil.constant.USER_ADDRESS;
 import static hcmute.edu.vn.foody_08.ultil.constant.USER_AVATAR;
@@ -21,6 +22,7 @@ import java.util.List;
 
 import hcmute.edu.vn.foody_08.data.DatabaseHelper;
 import hcmute.edu.vn.foody_08.model.DTO.payload.LoginDTO;
+import hcmute.edu.vn.foody_08.model.Shop;
 import hcmute.edu.vn.foody_08.model.User;
 
 public class UserDAO {
@@ -51,6 +53,30 @@ public class UserDAO {
         }
         return -1;
     }
+    public User getUserByEmail(String value){
+        SQLiteDatabase sqLiteDatabase = databaseHelper.getReadableDatabase();
+        Cursor cursor = null;
+        try {
+            cursor = sqLiteDatabase.query(TABLE_USER, null,
+                    USER_EMAIL + " =? ", new String[]{String.valueOf(value)},
+                    null, null, null);
+
+            if(cursor!=null && cursor.moveToFirst()) {
+                User rs = getUserFromCursor(cursor);
+                return rs;
+            }
+            else
+                return null;
+
+        } catch (Exception e){
+            return null;
+        } finally {
+            sqLiteDatabase.close();
+            if(cursor!=null)
+                cursor.close();
+        }
+    }
+
 
     public User CheckLogin(LoginDTO user){
         SQLiteDatabase sqLiteDatabase = databaseHelper.getReadableDatabase();

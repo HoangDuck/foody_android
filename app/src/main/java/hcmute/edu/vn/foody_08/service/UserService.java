@@ -18,6 +18,9 @@ public class UserService {
     public User Login(LoginDTO login){
         return userDAO.CheckLogin(login);
     }
+    public User getUserByEmail(String value){
+        return userDAO.getUserByEmail(value);
+    }
 
     public void createUser(User user){
          userDAO.createUser(user);

@@ -153,6 +153,6 @@ public class UserDAO {
         String phone =cursor.getString(cursor.getColumnIndex(USER_PHONE));
 
 
-        return new User(id, name, avatar,email, password,address,gender,phone);
+        return new User(id,name,avatar,password,address,gender,phone,email);
     }
 }

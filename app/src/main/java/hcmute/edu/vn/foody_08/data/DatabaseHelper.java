@@ -201,7 +201,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 "'Open','5.0'," +
                 "'09:00:00','21:00:00'," +
                 "'0123456789')");
-
         return shops;
     }
     private List<String> listFoods(){

@@ -132,24 +132,24 @@
                     android:orientation="horizontal">>
 
                     <TextView
-                        android:id="@+id/labelNickName"
+                        android:id="@+id/labelEmail"
                         android:layout_width="73dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:fontFamily="sans-serif-black"
                         android:gravity="center_vertical"
                         android:paddingLeft="20dp"
-                        android:text="Tên hiển thị:"
+                        android:text="Email:"
                         android:textSize="20sp" />
 
                     <TextView
-                        android:id="@+id/txtNickName"
+                        android:id="@+id/txtEmail"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:fontFamily="sans-serif-black"
                         android:gravity="center_vertical"
-                        android:text="Đan Vippro"
+                        android:text="Email"
                         android:textSize="20sp" />
 
                     <TextView
@@ -205,28 +205,6 @@
                         android:textSize="20sp" />
                 </LinearLayout>
 
-
-                <LinearLayout
-                    android:id="@+id/LinearSave"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/my_custom_background"
-                    android:layout_margin="10dp"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/txtSave"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:background="@color/btn_save_color"
-                        android:gravity="center"
-                        android:paddingLeft="20dp"
-                        android:text="Lưu thay đổi"
-                        android:textColor="@color/white"
-                        android:textSize="20sp" />
-
-                </LinearLayout>
             </LinearLayout>
         </ScrollView>
 

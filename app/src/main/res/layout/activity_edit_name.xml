@@ -67,7 +67,7 @@
                     android:textSize="20sp" />
 
                 <EditText
-                    android:id="@+id/txtUserInfoIcon"
+                    android:id="@+id/txtUserInfo_edit_name"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -85,8 +85,8 @@
                 android:layout_margin="10dp"
                 android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/txtSave"
+                <Button
+                    android:id="@+id/btn_save_edit_name"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"

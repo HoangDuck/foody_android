@@ -63,6 +63,7 @@ public class constant {
     public static final String GLOBAL_USER_ID = "id";
     public static final String GLOBAL_USER_NAME = "name";
     public static final String GLOBAL_USER_EMAIL = "email";
+    public static final String GLOBAL_USER_PASSWORD = "password";
     public static final String GLOBAL_USER_AVATAR = "avatar";
     public static final String GLOBAL_USER_ADDRESS = "address";
     public static final String GLOBAL_USER_GENDER= "gender";

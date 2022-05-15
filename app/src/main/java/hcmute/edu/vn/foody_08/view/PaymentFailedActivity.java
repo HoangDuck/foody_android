@@ -2,9 +2,11 @@ package hcmute.edu.vn.foody_08.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import hcmute.edu.vn.foody_08.MainActivity;
 import hcmute.edu.vn.foody_08.R;
 
 public class PaymentFailedActivity extends AppCompatActivity {
@@ -16,10 +18,7 @@ public class PaymentFailedActivity extends AppCompatActivity {
     }
 
     public void goBackToCart(View view) {
-        finish();
-    }
-
-    public void closeResultPage(View view) {
-        finish();
+        Intent intent=new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 }

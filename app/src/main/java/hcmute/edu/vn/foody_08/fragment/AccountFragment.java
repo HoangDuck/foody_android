@@ -16,11 +16,13 @@ import android.widget.TextView;
 
 import hcmute.edu.vn.foody_08.R;
 import hcmute.edu.vn.foody_08.UserInfoActivity;
+import hcmute.edu.vn.foody_08.model.User;
 import hcmute.edu.vn.foody_08.service.ShareReferences;
 import hcmute.edu.vn.foody_08.view.LoginRegisterActivity;
 
 public class AccountFragment extends Fragment {
-    TextView txtUserInfo,txtUserInfoLogout;
+    TextView txtUserInfo,txtUserInfoLogout,txtLogout;
+    ShareReferences shareReferences;
     public AccountFragment() {
         // Required empty public constructor
     }
@@ -41,6 +43,14 @@ public class AccountFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        shareReferences=ShareReferences.getInstance(getContext());
+        txtLogout=view.findViewById(R.id.txtLogout);
+        try {
+            shareReferences.getGlobalUser();
+            txtLogout.setText("Đăng xuất");
+        }catch (Exception e){
+            txtLogout.setText("Đăng nhập");
+        }
         txtUserInfo=view.findViewById(R.id.txtUserInfoIcon);
         txtUserInfo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,24 +62,28 @@ public class AccountFragment extends Fragment {
             }
         });
         txtUserInfoLogout=view.findViewById(R.id.txtLogoutIcon);
-        txtUserInfoLogout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent=new Intent(view.getContext(), LoginRegisterActivity.class);
-                startActivity(intent);
-            }
+        txtUserInfoLogout.setOnClickListener(view1 -> {
+            clearUserData();
+            txtLogout.setText("Đăng nhập");
+            Intent intent=new Intent(view1.getContext(), LoginRegisterActivity.class);
+            startActivity(intent);
         });
+    }
 
+    private void clearUserData() {
+        shareReferences.DeleteGlobalUser();
     }
 
     private Boolean checkLogin() {
-        ShareReferences shareReferences=ShareReferences.getInstance(getContext());
         try{
-            String user=shareReferences.getData(GLOBAL_USER_ID);
-            if(user==""){
+            User user=shareReferences.getGlobalUser();
+            if(user==null){
                 Intent intent=new Intent(getContext(), LoginRegisterActivity.class);
                 startActivity(intent);
                 return false;
+            }
+            else {
+                txtLogout.setText("Đăng xuất");
             }
         }catch (Exception e){
             Intent intent=new Intent(getContext(), LoginRegisterActivity.class);

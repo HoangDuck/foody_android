@@ -1,5 +1,7 @@
 package hcmute.edu.vn.foody_08.fragment;
 
+import static hcmute.edu.vn.foody_08.ultil.constant.GLOBAL_USER_ID;
+
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -63,7 +65,7 @@ public class AccountFragment extends Fragment {
     private Boolean checkLogin() {
         ShareReferences shareReferences=ShareReferences.getInstance(getContext());
         try{
-            String user=shareReferences.getData("user");
+            String user=shareReferences.getData(GLOBAL_USER_ID);
             if(user==""){
                 Intent intent=new Intent(getContext(), LoginRegisterActivity.class);
                 startActivity(intent);

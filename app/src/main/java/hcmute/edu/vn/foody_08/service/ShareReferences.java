@@ -6,7 +6,9 @@ import static hcmute.edu.vn.foody_08.ultil.constant.GLOBAL_USER_EMAIL;
 import static hcmute.edu.vn.foody_08.ultil.constant.GLOBAL_USER_GENDER;
 import static hcmute.edu.vn.foody_08.ultil.constant.GLOBAL_USER_ID;
 import static hcmute.edu.vn.foody_08.ultil.constant.GLOBAL_USER_NAME;
+import static hcmute.edu.vn.foody_08.ultil.constant.GLOBAL_USER_PASSWORD;
 import static hcmute.edu.vn.foody_08.ultil.constant.GLOBAL_USER_PHONE;
+import static hcmute.edu.vn.foody_08.ultil.constant.USER_ID;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -46,10 +48,24 @@ public class ShareReferences {
         prefsEditor.putString(GLOBAL_USER_ID, String.valueOf(user.getId()));
         prefsEditor.putString(GLOBAL_USER_NAME, user.getName());
         prefsEditor.putString(GLOBAL_USER_EMAIL, user.getEmail());
+        prefsEditor.putString(GLOBAL_USER_PASSWORD, user.getPassword());
         prefsEditor.putString(GLOBAL_USER_AVATAR, user.getAvatar());
         prefsEditor.putString(GLOBAL_USER_ADDRESS, user.getAddress());
         prefsEditor.putString(GLOBAL_USER_GENDER, user.getGender());
         prefsEditor.putString(GLOBAL_USER_PHONE, user.getPhone());
         prefsEditor.commit();
+    }
+    public User getGlobalUser() {
+        User user = new User();
+        user.setId(Integer.parseInt(getData(GLOBAL_USER_ID)));
+        user.setAddress(getData(GLOBAL_USER_ADDRESS));
+        user.setAvatar(getData(GLOBAL_USER_AVATAR));
+        user.setEmail(getData(GLOBAL_USER_EMAIL));
+        user.setPassword(getData(GLOBAL_USER_PASSWORD));
+        user.setGender(getData(GLOBAL_USER_GENDER));
+        user.setPhone(getData(GLOBAL_USER_PHONE));
+        user.setName(getData(GLOBAL_USER_NAME));
+      return user;
+
     }
 }

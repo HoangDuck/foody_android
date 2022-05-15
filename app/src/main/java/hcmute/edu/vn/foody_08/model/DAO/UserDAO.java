@@ -53,6 +53,24 @@ public class UserDAO {
         }
         return -1;
     }
+    public long updateUser(User user) {
+        SQLiteDatabase sqLiteDatabase = databaseHelper.getWritableDatabase();
+
+        ContentValues contentValues = getContentValuesUser(user);
+
+        try {
+            long id = sqLiteDatabase.update(TABLE_USER, contentValues,USER_ID+"= ?",new String[]{String.valueOf(user.getId())});
+            if(id>0) {
+                System.out.println("successful inserted user");
+                return id;
+            }
+        } catch (SQLiteException e){
+            System.out.println(e.getMessage());
+        } finally {
+            sqLiteDatabase.close();
+        }
+        return -1;
+    }
     public User getUserByEmail(String value){
         SQLiteDatabase sqLiteDatabase = databaseHelper.getReadableDatabase();
         Cursor cursor = null;

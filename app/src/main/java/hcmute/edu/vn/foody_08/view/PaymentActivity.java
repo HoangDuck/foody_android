@@ -76,7 +76,7 @@ public class PaymentActivity extends AppCompatActivity {
     }
 
     public void totalSumMoney() {
-        int totalPrice = 0;
+        totalPrice = 0;
         for (CartItem item : cartItemList
         ) {
             totalPrice += item.getPrice() * item.getQuantity();

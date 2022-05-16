@@ -88,6 +88,12 @@ public class FoodAddOrderAdapter extends BaseAdapter {
         Picasso.get().load(food.getImage()).into(viewHolder.imageViewFood);
     }
 
+    public void updateListItem(List<Food> listFood){
+        this.listFood.clear();
+        this.listFood.addAll(listFood);
+        this.notifyDataSetChanged();
+    }
+
     private class ViewHolder {
         public TextView textViewNameFood,getTextViewFoodDescription,textViewPriceFood;
         public ImageView imageViewFood;

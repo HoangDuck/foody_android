@@ -20,6 +20,7 @@ import hcmute.edu.vn.foody_08.SearchActivity;
 import hcmute.edu.vn.foody_08.adapter.FoodRestaurantAdapter;
 import hcmute.edu.vn.foody_08.model.Food;
 import hcmute.edu.vn.foody_08.model.Shop;
+import hcmute.edu.vn.foody_08.model.User;
 import hcmute.edu.vn.foody_08.service.FoodService;
 import hcmute.edu.vn.foody_08.service.ShareReferences;
 
@@ -31,6 +32,7 @@ public class RestaurantActivity extends AppCompatActivity {
 
     Shop shop;
     List<Food> listFoodByShopId;
+    ShareReferences shareReferences=ShareReferences.getInstance(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,7 +88,24 @@ public class RestaurantActivity extends AppCompatActivity {
         finish();
     }
 
-    public void goToYourCart(View view) {
+
+    public void openSearchView(View view) {
+        Intent intent = new Intent(RestaurantActivity.this, SearchActivity.class);
+        startActivity(intent);
+    }
+    private boolean checkLogin() {
+        try{
+            User user=shareReferences.getGlobalUser();
+            if(user==null){
+                return false;
+            }
+        }catch (Exception e){
+            return false;
+        }
+        return true;
+    }
+
+    public void goToYourCartFromRestaurant(View view) {
         Intent intent;
         if(checkLogin()){
             intent = new Intent(this, OrderAllCartActivity.class);
@@ -96,23 +115,5 @@ public class RestaurantActivity extends AppCompatActivity {
         }
         //truyền đi và nhận lại dữ liệu qua intent dạng json
         startActivity(intent);
-
-    }
-
-    public void openSearchView(View view) {
-        Intent intent = new Intent(RestaurantActivity.this, SearchActivity.class);
-        startActivity(intent);
-    }
-    private boolean checkLogin() {
-        ShareReferences shareReferences=ShareReferences.getInstance(this);
-        try{
-            String user=shareReferences.getData("user");
-            if(user.equals("")){
-                return false;
-            }
-        }catch (Exception e){
-            return false;
-        }
-        return true;
     }
 }

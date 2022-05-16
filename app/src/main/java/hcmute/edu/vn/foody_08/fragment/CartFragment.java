@@ -30,6 +30,7 @@ import hcmute.edu.vn.foody_08.model.CartItem;
 import hcmute.edu.vn.foody_08.model.Food;
 import hcmute.edu.vn.foody_08.model.OrderDetail;
 import hcmute.edu.vn.foody_08.model.Shop;
+import hcmute.edu.vn.foody_08.model.User;
 import hcmute.edu.vn.foody_08.service.FoodService;
 import hcmute.edu.vn.foody_08.service.ShareReferences;
 import hcmute.edu.vn.foody_08.service.ShopSevice;
@@ -69,7 +70,7 @@ public class CartFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         addControl(view);
         addEvent(view);
-        if(/*checkLogin()*/true){
+        if(checkLogin()){
             getData();
             setData();
         }
@@ -81,8 +82,8 @@ public class CartFragment extends Fragment {
 
     private boolean checkLogin() {
         try{
-            String user=shareReferences.getData("user");
-            if(user.equals("")){
+            User user=shareReferences.getGlobalUser();
+            if(user==null){
                 return false;
             }
         }catch (Exception e){

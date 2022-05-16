@@ -23,6 +23,7 @@ import hcmute.edu.vn.foody_08.R;
 import hcmute.edu.vn.foody_08.model.CartItem;
 import hcmute.edu.vn.foody_08.model.Food;
 import hcmute.edu.vn.foody_08.model.OrderDetail;
+import hcmute.edu.vn.foody_08.model.User;
 import hcmute.edu.vn.foody_08.service.ShareReferences;
 
 public class OrderActivity extends AppCompatActivity {
@@ -105,7 +106,7 @@ public class OrderActivity extends AppCompatActivity {
 
     public void addToCartAndFinish(View view) {
         Intent intent;
-        if (/*checkLogin()*/true) {
+        if (checkLogin()) {
             addFoodToListCart();
             shareReferences.saveData("cartItemList", gson.toJson(CartItem.cartItemList));
             intent = new Intent(this, OrderAllCartActivity.class);
@@ -154,8 +155,8 @@ public class OrderActivity extends AppCompatActivity {
 
     private boolean checkLogin() {
         try {
-            String user = shareReferences.getData("user");
-            if (user.equals("")) {
+            User user = shareReferences.getGlobalUser();
+            if (user==null) {
                 return false;
             }
         } catch (Exception e) {

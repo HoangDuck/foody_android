@@ -38,7 +38,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:background="@drawable/ic_baseline_shopping_cart_white_24"
-            android:onClick="goToYourCart" />
+            android:onClick="goToYourCartFromRestaurant" />
 
     </LinearLayout>
 

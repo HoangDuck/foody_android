@@ -64,7 +64,7 @@
             android:id="@+id/txt_restaurant_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Thành mập - Chân Gà Rút Xương Ngâm Sả Tắc - Bạch Đằng - Shop Online"
+            android:text="Giỏ hàng của bạn đang trống"
             android:textColor="@color/black"
             android:gravity="start"
             android:textSize="20dp"
@@ -74,7 +74,7 @@
             android:id="@+id/txt_restaurant_address"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Địa chỉ: 159/49/9 Bạch Đằng, P.2, Quận Tân Bình,TP.HCM"
+            android:text=""
             android:textColor="@color/black"
             android:textSize="15dp" />
     </LinearLayout>
@@ -124,7 +124,7 @@
                 android:id="@+id/total_money"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="320,000 VND"
+                android:text="0 VND"
                 android:textColor="@color/black"
                 android:textSize="20dp"
                 android:textStyle="bold" />

@@ -64,6 +64,15 @@ public class PaymentActivity extends AppCompatActivity {
     private void addEvent() {
     }
 
+    private int countQuantityListCartItem(){
+        int tempQuantity=0;
+        int tempQuantityListLength=cartItemList.size();
+        for(int i=0;i<tempQuantityListLength;i++){
+            tempQuantity+=cartItemList.get(i).getQuantity();
+        }
+        return tempQuantity;
+    }
+
     private void addControl() {
         listView = findViewById(R.id.listViewFoodCart);
         address_to_receive = findViewById(R.id.address_to_receive);
@@ -92,7 +101,8 @@ public class PaymentActivity extends AppCompatActivity {
     }
 
     private void addFoodCartToDB() {
-        Order order = new Order(Integer.parseInt(shareReferences.getData(GLOBAL_USER_ID)), "Đã thanh toán", (double) totalPrice, LocalDateTime.now(), 10, shareReferences.getData(GLOBAL_USER_ADDRESS));
+        int quantityTotal=countQuantityListCartItem();
+        Order order = new Order(Integer.parseInt(shareReferences.getData(GLOBAL_USER_ID)), "Đã thanh toán", (double) totalPrice, LocalDateTime.now(), quantityTotal, shareReferences.getData(GLOBAL_USER_ADDRESS));
         int tempIdOrder = orderService.createOrder(order);
         int listCartItemLength=cartItemList.size();
         for(int i=0;i<listCartItemLength;i++){

@@ -37,9 +37,17 @@ public class OrderAllCartActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_all_cart);
-        addControl();
-        addEvent();
-        setData();
+        if(!checkEmptyCart()){
+            addControl();
+            addEvent();
+            setData();
+        }
+    }
+
+    private boolean checkEmptyCart() {
+        if(CartItem.cartItemList.size()==0)
+            return true;
+        return false;
     }
 
     private void setData() {
@@ -98,12 +106,14 @@ public class OrderAllCartActivity extends AppCompatActivity {
     }
 
     public void clearCart(View view) {
-        cartItemList.clear();
-        CartItem.cartItemList.clear();
-        txt_restaurant_name.setText("Giỏ hàng của bạn đang trống");
-        txt_restaurant_address.setText("");
-        total_money.setText("0 VND");
-        shareReferences.saveData("cartItemList","");
-        cartFoodAdapter.notifyDataSetChanged();
+        if(CartItem.cartItemList.size()!=0){
+            cartItemList.clear();
+            CartItem.cartItemList.clear();
+            txt_restaurant_name.setText("Giỏ hàng của bạn đang trống");
+            txt_restaurant_address.setText("");
+            total_money.setText("0 VND");
+            shareReferences.saveData("cartItemList","");
+            cartFoodAdapter.notifyDataSetChanged();
+        }
     }
 }

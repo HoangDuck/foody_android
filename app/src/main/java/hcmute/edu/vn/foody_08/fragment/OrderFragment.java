@@ -50,7 +50,7 @@ public class OrderFragment extends Fragment {
         shareReferences=ShareReferences.getInstance(this.getContext());
         addControl(view);
         addEvent(view);
-        if(/*checkLogin()*/true){
+        if(checkLogin()){
             getData();
             setData();
         }
@@ -85,8 +85,8 @@ public class OrderFragment extends Fragment {
 
     private boolean checkLogin() {
         try{
-            String user=shareReferences.getData("user");
-            if(user.equals("")){
+            User user=shareReferences.getGlobalUser();
+            if(user==null){
                 return false;
             }
         }catch (Exception e){

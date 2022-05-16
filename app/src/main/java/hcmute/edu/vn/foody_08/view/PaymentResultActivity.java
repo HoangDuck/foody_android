@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import hcmute.edu.vn.foody_08.MainActivity;
 import hcmute.edu.vn.foody_08.R;
 
 public class PaymentResultActivity extends AppCompatActivity {
@@ -16,8 +17,9 @@ public class PaymentResultActivity extends AppCompatActivity {
         setContentView(R.layout.activity_payment_result_success);
     }
 
-    public void closeResultPage(View view) {
-        finish();
-    }
 
+    public void goBackHomePage(View view) {
+        Intent intent=new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
 }

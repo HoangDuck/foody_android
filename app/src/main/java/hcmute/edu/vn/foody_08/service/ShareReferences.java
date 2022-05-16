@@ -55,6 +55,19 @@ public class ShareReferences {
         prefsEditor.putString(GLOBAL_USER_PHONE, user.getPhone());
         prefsEditor.commit();
     }
+    public void DeleteGlobalUser() {
+        SharedPreferences.Editor prefsEditor = sharedPreferences.edit();
+        prefsEditor.putString(GLOBAL_USER_ID, null);
+        prefsEditor.putString(GLOBAL_USER_NAME, null);
+        prefsEditor.putString(GLOBAL_USER_EMAIL, null);
+        prefsEditor.putString(GLOBAL_USER_PASSWORD, null);
+        prefsEditor.putString(GLOBAL_USER_AVATAR, null);
+        prefsEditor.putString(GLOBAL_USER_ADDRESS, null);
+        prefsEditor.putString(GLOBAL_USER_GENDER, null);
+        prefsEditor.putString(GLOBAL_USER_PHONE, null);
+        prefsEditor.commit();
+    }
+
     public User getGlobalUser() {
         User user = new User();
         user.setId(Integer.parseInt(getData(GLOBAL_USER_ID)));

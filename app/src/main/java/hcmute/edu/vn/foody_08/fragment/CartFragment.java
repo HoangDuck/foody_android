@@ -26,6 +26,7 @@ import java.util.List;
 
 import hcmute.edu.vn.foody_08.R;
 import hcmute.edu.vn.foody_08.adapter.CartFoodAdapter;
+import hcmute.edu.vn.foody_08.model.CartItem;
 import hcmute.edu.vn.foody_08.model.Food;
 import hcmute.edu.vn.foody_08.model.OrderDetail;
 import hcmute.edu.vn.foody_08.model.Shop;
@@ -42,10 +43,11 @@ public class CartFragment extends Fragment {
     ListView listViewFoodCart;
     TextView txt_restaurant_name,txt_restaurant_address;
     TextView total_money;
-    List<OrderDetail> listOrderDetail;
+
+    List<CartItem> cartItemList;
     List<Shop> shopList;
     Shop shop;
-    Gson gson;
+    CartFoodAdapter cartFoodAdapter;
 
     int totalPrice=0;
 
@@ -67,7 +69,7 @@ public class CartFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         addControl(view);
         addEvent(view);
-        if(checkLogin()){
+        if(/*checkLogin()*/true){
             getData();
             setData();
         }
@@ -90,28 +92,39 @@ public class CartFragment extends Fragment {
     }
 
     private void setData() {
-        CartFoodAdapter cartFoodAdapter=new CartFoodAdapter(getActivity(), R.layout.item_cart_food,listOrderDetail);
+        cartFoodAdapter=new CartFoodAdapter(getActivity(), R.layout.item_cart_food,cartItemList);
         listViewFoodCart.setAdapter(cartFoodAdapter);
-        txt_restaurant_name.setText(shop.getName());
-        txt_restaurant_address.setText(shop.getAddress());
+
+        if(cartItemList.size()!=0){
+            txt_restaurant_name.setText(shop.getName());
+            txt_restaurant_address.setText(shop.getAddress());
+        }
+        totalSumMoney();
+    }
+
+    public void totalSumMoney(){
+        for (CartItem item: cartItemList
+        ) {
+            totalPrice+=item.getPrice()*item.getQuantity();
+        }
+        total_money.setText(Integer.toString(totalPrice)+" VND");
     }
 
     private void getData() {
-        gson=new Gson();
-        listOrderDetail=new ArrayList<>();
+        cartItemList=new ArrayList<>();
+        cartItemList=CartItem.cartItemList;
         //get list order detail
         shopList=new ArrayList<>();
         ShopSevice shopSevice=new ShopSevice(getContext());
         shopList=shopSevice.getAllShops();
-        shop=shopList.get(0);
+        findShopObject();
     }
-
 
     private void addEvent(View view) {
         btn_payment.setOnClickListener(v -> {
             if(totalPrice>0){
                 Intent intent=new Intent(view.getContext(), PaymentActivity.class);
-                intent.putExtra("listOrderDetails", gson.toJson(listOrderDetail));
+                intent.putExtra("listCartFood", (Serializable) cartItemList);
                 startActivity(intent);
             }
         });
@@ -124,9 +137,21 @@ public class CartFragment extends Fragment {
 
     private void addControl(View view) {
         btn_payment=view.findViewById(R.id.btn_payment);
-        listViewFoodCart=view.findViewById(R.id.listViewFoodRestaurant);
+        listViewFoodCart=view.findViewById(R.id.listViewFoodCart);
         txt_restaurant_address=view.findViewById(R.id.txt_restaurant_address);
         txt_restaurant_name=view.findViewById(R.id.txt_restaurant_name);
         total_money=view.findViewById(R.id.total_money);
+    }
+
+    private void findShopObject() {
+        if(CartItem.cartItemList.size()==0)
+            return;
+        for (Shop shop: shopList
+        ) {
+            if(shop.getId()==CartItem.cartItemList.get(0).getShopId()){
+                this.shop=shop;
+                return;
+            }
+        }
     }
 }

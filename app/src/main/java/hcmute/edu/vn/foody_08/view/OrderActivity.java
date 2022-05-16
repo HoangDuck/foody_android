@@ -34,7 +34,6 @@ public class OrderActivity extends AppCompatActivity {
     ImageButton btn_increase, btn_decrease;
     Food food;
     CartItem cartItem;
-    List<CartItem> cartItemList;
     ShareReferences shareReferences;
     Gson gson;
 
@@ -58,7 +57,6 @@ public class OrderActivity extends AppCompatActivity {
     private void getData() {
         gson = new Gson();
         shareReferences = ShareReferences.getInstance(this);
-        cartItemList = gson.fromJson(shareReferences.getData("cartItemList"), (Type) CartItem[].class);
         Intent intent = getIntent();
         food = (Food) intent.getSerializableExtra("food");
         cartItem = new CartItem(food.getId(), food.getName(), food.getShopId(), food.getPrice(), 1);
@@ -93,7 +91,7 @@ public class OrderActivity extends AppCompatActivity {
         Intent intent;
         if (checkLogin()) {
             intent = new Intent(this, OrderAllCartActivity.class);
-            intent.putExtra("cartItemList", (Serializable) cartItemList);
+            intent.putExtra("cartItemList", (Serializable) CartItem.cartItemList);
         } else {
             intent = new Intent(this, LoginRegisterActivity.class);
         }
@@ -107,14 +105,51 @@ public class OrderActivity extends AppCompatActivity {
 
     public void addToCartAndFinish(View view) {
         Intent intent;
-        if (checkLogin()) {
-            cartItemList.add(cartItem);
-            shareReferences.saveData("cartItemList", gson.toJson(cartItemList));
+        if (/*checkLogin()*/true) {
+            addFoodToListCart();
+            shareReferences.saveData("cartItemList", gson.toJson(CartItem.cartItemList));
             intent = new Intent(this, OrderAllCartActivity.class);
         } else {
             intent = new Intent(this, LoginRegisterActivity.class);
         }
         startActivity(intent);
+    }
+
+    public void addFoodToListCart() {
+        try{
+            if(cartItem.getShopId()!=CartItem.cartItemList.get(0).getShopId()){
+                CartItem.cartItemList.clear();
+                CartItem.cartItemList.add(cartItem);
+                return;
+            }
+        }catch (Exception e){
+
+        }
+        if (!isCartItemInCart()) {
+            CartItem.cartItemList.add(cartItem);
+        }else {
+            int tempIndex=findIndexOfItemInCart();
+            int tempQuantity=CartItem.cartItemList.get(tempIndex).getQuantity();
+            tempQuantity++;
+            CartItem.cartItemList.get(tempIndex).setQuantity(tempQuantity);
+        }
+    }
+    private int findIndexOfItemInCart(){
+        int tempLength=CartItem.cartItemList.size();
+        for(int i=0;i<tempLength;i++){
+            if(cartItem.getId()==CartItem.cartItemList.get(i).getId())
+                return i;
+        }
+        return 0;
+    }
+
+    private boolean isCartItemInCart(){
+        for (CartItem cartItemFood: CartItem.cartItemList
+             ) {
+            if(cartItemFood.getId()==cartItem.getId())
+                return true;
+        }
+        return false;
     }
 
     private boolean checkLogin() {
